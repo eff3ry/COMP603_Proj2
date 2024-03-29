@@ -8,12 +8,14 @@ package VirtualPet;
  *
  * @author jeffe
  */
-import Effects.*;
+
 
 public class Pet {
     String name;
     
     int health;
+    
+    //Hunger Attributes 0-100
     int water;
     int food;
     
@@ -21,7 +23,7 @@ public class Pet {
     int weight;
     int strength;
     
-    int mood; //angry, sad, happy etc
+    int happiness; //angry, sad, happy etc
     int friendliness; //rename to sociability??
     
     int exercise;
@@ -30,5 +32,13 @@ public class Pet {
     int laziness; // how lazy/active
     int likesBeingPetted;
             
-    Effect[] effects;
+   
+    
+    
+    public Pet(String name)
+    {
+        this.name = name;
+    }
+    
+   
 }
