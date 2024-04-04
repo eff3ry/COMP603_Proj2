@@ -25,9 +25,7 @@ public class Pet {
     int strength;
     
     int happiness; //angry, sad, happy etc
-     //rename to sociability??
     
-    int exercise;
     
     int pickiness; //how picky it is with food
     int laziness; // how lazy/active
@@ -42,8 +40,8 @@ public class Pet {
     public Pet(String name, String species)
     {
         this.name = name;
-        initResources();
-        initNeeds();
+        resources.initResources();
+        needs.initNeeds();
     }
     
     
@@ -85,7 +83,7 @@ public class Pet {
     }
     
     private void deathAction() {
-        if(hunger == 100 || thirst == 100) {
+        if(needs.hunger == 100 || needs.thirst == 100) {
             
         }
         

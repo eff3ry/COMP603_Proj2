@@ -13,7 +13,7 @@ package VirtualPet;
  */
 public class App {
     public static void main(String[] args) {
-        Pet pet = new Pet("test Pet");    
+        Pet pet = new Pet("test Pet", "cat");    
         pet.needs.hunger = 80;
         printPetMeter(pet.needs.hunger, "Hunger");
     }
