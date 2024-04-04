@@ -18,14 +18,16 @@ public class Pet {
     String name;
     
     int health;
-    
+    String species;
     
     int age;
     int weight;
     int strength;
     
     int happiness; //angry, sad, happy etc
-    int friendliness; //rename to sociability??
+     //rename to sociability??
+    
+    int exercise;
     
     int pickiness; //how picky it is with food
     int laziness; // how lazy/active
@@ -37,16 +39,21 @@ public class Pet {
     PetResources resources = new PetResources();
     
     //Pet Creation
-    public Pet(String name)
+    public Pet(String name, String species)
     {
         this.name = name;
-        resources.initResources();
-        needs.initNeeds();
+        initResources();
+        initNeeds();
     }
     
     
     
-    
+    public void statGen() {
+        pickiness = rand.nextInt(11);
+        laziness = rand.nextInt(11);
+        likesBeingPetted = rand.nextInt(11);
+        
+    }
     public void tickTime()
     {
         //Increase thirst
@@ -77,7 +84,12 @@ public class Pet {
         resources.foodInBowl -= eatAmmount; 
     }
     
-    
+    private void deathAction() {
+        if(hunger == 100 || thirst == 100) {
+            
+        }
+        
+    }
     /**
      * @param amount the amount to fill the bowl by
      * @return amount past max value (100)
