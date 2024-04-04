@@ -30,7 +30,7 @@ public class App {
         System.out.print(attribute + ": "+value +"/100 [");
               
         
-        for (int i = 0; i < meterFillAmount; i++)
+        for (int i = 1; i < meterFillAmount; i++)
         {
             System.out.print(getMeterColor(i));
             System.out.print("=");
