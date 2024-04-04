@@ -18,7 +18,7 @@ public class Pet {
     String name;
     
     int health;
-    
+    String species;
     //Hunger Attributes 0-100, these are 'negative' attributes so the lower the better
     //could display a low value as green, mid value as orange and high value as red
     int thirst;
@@ -29,14 +29,15 @@ public class Pet {
     int strength;
     
     int happiness; //angry, sad, happy etc
-    int friendliness; //rename to sociability??
+     //rename to sociability??
     
     int exercise;
     
     int pickiness; //how picky it is with food
     int laziness; // how lazy/active
     int likesBeingPetted;
-            
+    
+    
     //Resources 0-100
     int foodInBowl;
     int waterInBowl;
@@ -44,11 +45,13 @@ public class Pet {
     static Random rand = new Random();   
     
     //Pet Creation
-    public Pet(String name)
+    public Pet(String name, String species)
     {
         this.name = name;
+        this.species = species;
         initResources();
         initNeeds();
+        statGen();
     }
     
     private void initResources()
@@ -63,7 +66,12 @@ public class Pet {
         thirst = 50;
     }
     
-    
+    public void statGen() {
+        pickiness = rand.nextInt(11);
+        laziness = rand.nextInt(11);
+        likesBeingPetted = rand.nextInt(11);
+        
+    }
     public void tickTime()
     {
         //Increase thirst
@@ -76,6 +84,7 @@ public class Pet {
     
     private boolean canEat()
     {
+        
         return hunger > 0 && foodInBowl > 0;
     }
     
@@ -94,7 +103,12 @@ public class Pet {
         foodInBowl -= eatAmmount; 
     }
     
-    
+    private void deathAction() {
+        if(hunger == 100 || thirst == 100) {
+            
+        }
+        
+    }
     /**
      * @param amount the amount to fill the bowl by
      * @return amount past max value (100)
