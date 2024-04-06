@@ -15,16 +15,16 @@ import java.util.Random;
 
 
 public class Pet {
-    String name;
+    
     
     int health;
+    String name;
     String species;
-    
     int age;
     int weight;
     int strength;
     
-    int happiness; //angry, sad, happy etc
+    
     
     
     int pickiness; //how picky it is with food
@@ -40,6 +40,7 @@ public class Pet {
     public Pet(String name, String species)
     {
         this.name = name;
+        this.species = species;
         resources.initResources();
         needs.initNeeds();
     }

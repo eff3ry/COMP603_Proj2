@@ -1,5 +1,7 @@
 package VirtualPet;
 
+import java.util.Scanner;
+
 
 
 /*
@@ -13,9 +15,40 @@ package VirtualPet;
  */
 public class App {
     public static void main(String[] args) {
-        Pet pet = new Pet("test Pet", "cat");    
-        pet.needs.hunger = 80;
-        printPetMeter(pet.needs.hunger, "Hunger");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Digital Pet Paradise!");
+        System.out.println("Please select an option:");
+        
+        //TODO - some shit to do with species selection :skull:
+        //System.out.println("1. " + );
+        //System.out.println("2. " + option2);
+        //System.out.println("3. " + option3);
+        //System.out.println("4. " + option4);
+
+        int choice;
+        String userInput;
+
+        do {
+          System.out.print("Enter your choice (1-4): ");
+          choice = scanner.nextInt();
+        } while (choice < 1 || choice > 4); 
+
+        System.out.print("Enter a string: ");
+        userInput = scanner.nextLine();
+        scanner.nextLine(); 
+
+       // return userInput;
+        
+        
+        
+        
+        //Pet pet = new Pet("test Pet", "cat");    
+        //pet.needs.hunger = 80;
+        //printPetMeter(pet.needs.hunger, "Hunger");
+        //pet.needs.thirst = 30;
+        //printPetMeter(pet.needs.thirst, "Thirst");
+       // pet.needs.sadness = 10;
+        //printPetMeter(pet.needs.sadness, "Sadness");
     }
    
     
@@ -25,12 +58,12 @@ public class App {
         String GREY = "\033[2;30m";
         
         int meterFillAmount = value/10;
-        String meterColour;
+        
         
         System.out.print(attribute + ": "+value +"/100 [");
               
         
-        for (int i = 1; i < meterFillAmount; i++)
+        for (int i = 0; i < meterFillAmount; i++)
         {
             System.out.print(getMeterColor(i));
             System.out.print("=");
