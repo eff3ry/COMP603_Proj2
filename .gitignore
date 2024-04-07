@@ -6,3 +6,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/COMP603_Proj1_Maven/target/
