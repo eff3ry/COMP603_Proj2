@@ -51,6 +51,7 @@ public class App {
     }
    
     
+    //Method by jeffery
     static void printPetMeter(int value, String attribute)
     {
         String RESET = "\u001B[0m";
@@ -77,6 +78,8 @@ public class App {
         
     }
     
+    
+    //Method by jeffery
     private static String getMeterColor(int meterFillAmount) {
         String RED = "\u001B[31m";
         String GREEN = "\u001B[32m";
@@ -91,8 +94,9 @@ public class App {
 
     private static void test() {
         Pet pet = new Pet("heheha", "Cat");
+        Pet[] pets = new Pet[1];
+        pets[0] = pet;
         
-        
-        SaverLoader.save(pet);
+        SaverLoader.save(pets);
     }
 }

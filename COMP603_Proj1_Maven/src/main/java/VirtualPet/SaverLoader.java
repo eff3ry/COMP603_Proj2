@@ -16,14 +16,14 @@ import java.io.FileWriter;
 
 public class SaverLoader {
     
-    public static void save(Pet pet)
+    public static void save(Pet[] pets)
     {
         try {
             //Gson gson = new Gson();
             
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-            String jsonString = gson.toJson(pet);
+            String jsonString = gson.toJson(pets);
             
             
             
