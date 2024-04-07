@@ -16,10 +16,9 @@ import java.util.Random;
 
 public class Pet {
     
-    
-    int health;
     String name;
     String species;
+    int health;
     int age;
     int weight;
     int strength;

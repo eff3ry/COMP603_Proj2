@@ -8,9 +8,15 @@ import java.util.Scanner;
  */
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Digital Pet Paradise!");
-        System.out.println("Please select an option:");
+        
+        test();
+        
+        
+        
+        
+        //Scanner scanner = new Scanner(System.in);
+        //System.out.println("Welcome to the Digital Pet Paradise!");
+        //System.out.println("Please select an option:");
         
         //TODO - some shit to do with species selection :skull:
         //System.out.println("1. " + );
@@ -18,19 +24,19 @@ public class App {
         //System.out.println("3. " + option3);
         //System.out.println("4. " + option4);
 
-        int choice;
-        String userInput;
+        //int choice;
+        //String userInput;
 
-        do {
-          System.out.print("Enter your choice (1-4): ");
-          choice = scanner.nextInt();
-        } while (choice < 1 || choice > 4); 
+        //do {
+        //  System.out.print("Enter your choice (1-4): ");
+        //  choice = scanner.nextInt();
+        //} while (choice < 1 || choice > 4); 
 
-        System.out.print("Enter a string: ");
-        userInput = scanner.nextLine();
-        scanner.nextLine(); 
+        //System.out.print("Enter a string: ");
+        //userInput = scanner.nextLine();
+        //scanner.nextLine(); 
 
-       // return userInput;
+        //return userInput;
         
         
         
@@ -40,7 +46,7 @@ public class App {
         //printPetMeter(pet.needs.hunger, "Hunger");
         //pet.needs.thirst = 30;
         //printPetMeter(pet.needs.thirst, "Thirst");
-       // pet.needs.sadness = 10;
+        //pet.needs.sadness = 10;
         //printPetMeter(pet.needs.sadness, "Sadness");
     }
    
@@ -81,5 +87,12 @@ public class App {
             case 4, 5, 6 -> YELLOW;
             default -> RED;
         };
+    }
+
+    private static void test() {
+        Pet pet = new Pet("heheha", "Cat");
+        
+        
+        SaverLoader.save(pet);
     }
 }
