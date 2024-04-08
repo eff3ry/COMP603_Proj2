@@ -26,8 +26,7 @@ public abstract class Pet {
         needs.initNeeds();
     }
     
-    
-    
+        
     abstract public void feed();
     abstract protected void eat();
     
@@ -54,7 +53,7 @@ public abstract class Pet {
     public void displayStats() {
         System.out.println("Name: " + attributes.name);
         System.out.println("Species: " + attributes.species);
-        System.out.println("Needs:");
+        System.out.println("Needs ↴");
         printPetMeter(needs.thirst, "Thirst", false);
         printPetMeter(needs.hunger, "Hunger", false);
         printPetMeter(needs.exercise, "Exercise", false);
@@ -65,7 +64,7 @@ public abstract class Pet {
         //System.out.println("Exercise: " + exercise);
         //System.out.println("Bladder: " + bladder);
         //System.out.println("Sadness: "  + sadness);
-        System.out.println("Resources:");
+        System.out.println("Resources ↴");
         printPetMeter(resources.food, "Food", true);
         printPetMeter(resources.water, "Water", true);
     }
