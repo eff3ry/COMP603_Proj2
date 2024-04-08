@@ -37,4 +37,8 @@ public class SaverLoader {
             e.printStackTrace();
         }
     }
+
+    static Pet loadPet(String filename) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
