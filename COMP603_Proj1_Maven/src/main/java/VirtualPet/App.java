@@ -94,43 +94,7 @@ public class App {
 //        printPetMeter(pet.needs.sadness, "Sadness");
     
     
-    //Method by jeffery
-    static void printPetMeter(int value, String attribute) {
-        String RESET = "\u001B[0m";
-        String GREY = "\033[2;30m";
-
-        int meterFillAmount = value / 10;
-
-        System.out.print(attribute + ": " + value + "/100 [");
-
-        for (int i = 0; i < meterFillAmount; i++) {
-            System.out.print(getMeterColor(i));
-            System.out.print("=");
-        }
-        //System.out.print("|");
-        System.out.print(GREY);
-        for (int i = 0; i < 10 - meterFillAmount; i++) {
-            System.out.print("=");
-        }
-        System.out.println(RESET + "]");
-
-    }
-
-    //Method by jeffery
-    private static String getMeterColor(int meterFillAmount) {
-        String RED = "\u001B[31m";
-        String GREEN = "\u001B[32m";
-        String YELLOW = "\u001B[33m";
-        // Concise color mapping using a switch statement
-        return switch (meterFillAmount) {
-            case 0, 1, 2, 3 ->
-                GREEN;
-            case 4, 5, 6 ->
-                YELLOW;
-            default ->
-                RED;
-        };
-    }
+    
 
 //    private static void test() {
 //        Pet pet = new Pet("heheha", "Cat");
