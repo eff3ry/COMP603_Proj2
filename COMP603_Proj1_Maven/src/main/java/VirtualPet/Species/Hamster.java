@@ -10,10 +10,10 @@ import VirtualPet.Pet;
  *
  * @author jeffe
  */
-public class Cat extends Pet{
+public class Hamster extends Pet{
     
-    public Cat(String name) {
-        super(name, "Cat");
+    public Hamster(String name) {
+        super(name, "Hamster");
     }
     
 }
