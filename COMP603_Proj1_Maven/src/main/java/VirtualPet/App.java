@@ -11,33 +11,31 @@ public class App {
     static Pet pet;
     
     public static void main(String[] args) {
-        System.out.println("\u001B[32m" + "weeeee");
-        pet = new Cat("wiskers");
-        pet.displayStats();
-        //choosePet();
+        
+        choosePet();
     }
 
-    public void choosePet() {
+    public static void choosePet() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your pet:");
         System.out.println("1. Dog");
         System.out.println("2. Cat");
         System.out.println("3. Hamster");
         System.out.println("4. Rabbit");
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
 
-        //CLASSES DON'T EXIST YET DON'T WORRY
+        
         switch (choice) {
-            case 1:
+            case "1":
                 pet = new Dog(getName());
                 break;
-            case 2:
+            case "2":
                 pet = new Cat(getName());
                 break;
-            case 3:
+            case "3":
                 pet = new Hamster(getName());
                 break;
-            case 4:
+            case "4":
                 pet = new Rabbit(getName());
                 break;
             default:
@@ -46,10 +44,11 @@ public class App {
         }
     }
 
-    public String getName() {
+    public static String getName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter pet name: ");
-        return null;
+        String name = scanner.nextLine();
+        return name;
     }
 
     //test();
