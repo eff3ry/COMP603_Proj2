@@ -16,4 +16,11 @@ public class Attributes {
     protected int laziness;
     protected int pickiness;
     protected int likesBeingPetted;
+    
+    public Attributes()
+    {
+        laziness = (int) (Math.random() * 10) + 1;
+        pickiness = (int) (Math.random() * 10) + 1;
+        likesBeingPetted = (int) (Math.random() * 10) + 1;
+    }
 }
