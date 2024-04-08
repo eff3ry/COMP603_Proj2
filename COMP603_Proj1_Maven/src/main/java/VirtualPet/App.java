@@ -1,17 +1,20 @@
 package VirtualPet;
 
 import java.util.Scanner;
-import VirtualPet.Species.*;
+import VirtualPet.Creature.*;
 /**
  *
  * @author Jeffery & Josh
  */
 public class App {
 
-    Pet pet;
+    static Pet pet;
     
-    public void main(String[] args) {
-        choosePet();
+    public static void main(String[] args) {
+        System.out.println("\u001B[32m" + "weeeee");
+        pet = new Cat("wiskers");
+        pet.displayStats();
+        //choosePet();
     }
 
     public void choosePet() {
