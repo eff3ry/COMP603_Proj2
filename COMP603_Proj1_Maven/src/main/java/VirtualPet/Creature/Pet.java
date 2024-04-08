@@ -26,6 +26,14 @@ public abstract class Pet {
         needs.initNeeds();
     }
     
+    //constuctor for loading from file;
+    public Pet(Attributes attributes, Resources resources, Needs needs)
+    {
+        this.attributes = attributes;
+        this.resources = resources;
+        this.needs = needs;
+    }
+    
         
     abstract public void feed();
     abstract protected void eat();

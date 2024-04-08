@@ -15,6 +15,13 @@ public class Cat extends Pet{
         super(name, "Cat");
     }
     
+    //Constructor for loading from file
+    public Cat(Attributes attributes, Resources resources, Needs needs)
+    {
+        super(attributes, resources, needs);
+    }
+    
+    
     @Override
     public void feed() {
         resources.food += 10;

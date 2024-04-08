@@ -10,7 +10,7 @@ package VirtualPet;
  * @author jeffe
  */
 
-import Old.Pet;
+import VirtualPet.Creature.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;

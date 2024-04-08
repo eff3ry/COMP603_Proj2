@@ -13,6 +13,7 @@ public class App {
     public static void main(String[] args) {
         
         choosePet();
+        Pet pet3 = new Cat(new Attributes(), new Resources(), new Needs());
     }
 
     public static void choosePet() {
