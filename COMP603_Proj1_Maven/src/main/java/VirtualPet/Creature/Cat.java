@@ -11,8 +11,8 @@ package VirtualPet.Creature;
  */
 public class Cat extends Pet{
 
-    public Cat(){
-        attributes.species = "Cat";
+    public Cat(String name){
+        super(name, "Cat");
     }
     
     @Override
@@ -54,7 +54,20 @@ public class Cat extends Pet{
 
     @Override
     public void behaviour() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int mostUrgentNeed = Math.max(needs.hunger, Math.max(needs.thirst, needs.bladder));
+        
+        if (mostUrgentNeed == needs.hunger)
+        {
+            eat();
+            System.out.println(attributes.name + " was hungry and ate.");
+        } else if (mostUrgentNeed == needs.thirst)
+        {
+            drink();
+            System.out.println(attributes.name + " was thirsty and drank.");
+        } else if (mostUrgentNeed == needs.bladder)
+        {
+            System.out.println(attributes.name + " really needs to pee and can't do anything untill you take them to the litterbox");
+        }
     }
 
     

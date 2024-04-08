@@ -9,6 +9,14 @@ package VirtualPet.Creature;
  * @author jeffe
  */
 public class Resources {
+    
+    //Resources 0-100 these are variables with higher variables being better
     int food;
     int water;
+    
+    public void initResources()
+    {
+        food = 50;
+        water = 50;
+    }
 }
