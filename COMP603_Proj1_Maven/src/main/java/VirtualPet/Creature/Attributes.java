@@ -22,5 +22,7 @@ public class Attributes {
         laziness = (int) (Math.random() * 10) + 1;
         pickiness = (int) (Math.random() * 10) + 1;
         likesBeingPetted = (int) (Math.random() * 10) + 1;
+        
+        sadness = 0;
     }
 }

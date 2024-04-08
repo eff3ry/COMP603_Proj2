@@ -40,6 +40,16 @@ public abstract class Pet {
         
     public abstract void behaviour();
     
+    public void updateSadness() {
+        int highestNeed = Math.max(needs.hunger, Math.max(needs.exercise, needs.bladder));
+        if (highestNeed >= 100) {
+            attributes.sadness += 10;
+        }
+    }
+    
+    public boolean isHappy() {
+        return attributes.sadness < 100;
+    }
     
     public void displayStats() {
         System.out.println("Name: " + attributes.name);
