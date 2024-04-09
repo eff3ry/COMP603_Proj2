@@ -15,7 +15,7 @@ public abstract class Pet {
     public Needs needs;
     
     public Pet(String name, String species){
-        attributes = new Attributes();
+        attributes = new Attributes(name, species);
         resources = new Resources();
         needs = new Needs();
         
@@ -55,7 +55,7 @@ public abstract class Pet {
     }
     
     public boolean isHappy() {
-        return attributes.sadness < 100;
+        return attributes.getSadness() < 100;
     }
     
     public void displayStats() {
@@ -66,7 +66,7 @@ public abstract class Pet {
         printPetMeter(needs.hunger, "Hunger", false);
         printPetMeter(needs.exercise, "Exercise", false);
         printPetMeter(needs.bladder, "Bladder", false);
-        printPetMeter(attributes.sadness, "Sandness", false);
+        printPetMeter(attributes.getSadness(), "Sandness", false);
         //System.out.println("Thirst: " + thirst);
         //System.out.println("Hunger: " + hunger);
         //System.out.println("Exercise: " + exercise);

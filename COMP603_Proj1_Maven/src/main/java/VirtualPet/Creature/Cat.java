@@ -67,14 +67,14 @@ public class Cat extends Pet{
         if (mostUrgentNeed == needs.hunger)
         {
             eat();
-            System.out.println(attributes.name + " was hungry and ate.");
+            System.out.println(attributes.getName() + " was hungry and ate.");
         } else if (mostUrgentNeed == needs.thirst)
         {
             drink();
-            System.out.println(attributes.name + " was thirsty and drank.");
+            System.out.println(attributes.getName() + " was thirsty and drank.");
         } else if (mostUrgentNeed == needs.bladder)
         {
-            System.out.println(attributes.name + " really needs to pee and can't do anything untill you take them to the litterbox");
+            System.out.println(attributes.getName() + " really needs to pee and can't do anything untill you take them to the litterbox");
         }
     } 
 }

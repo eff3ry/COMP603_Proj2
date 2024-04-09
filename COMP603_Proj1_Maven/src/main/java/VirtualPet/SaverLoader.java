@@ -29,7 +29,7 @@ public class SaverLoader {
     {
         try {
             //create folder for the pet jsons
-            Path path = Paths.get("./resources/"+pet.attributes.name);
+            Path path = Paths.get("./resources/"+pet.attributes.getName());
             Files.createDirectories(path);
             
             
