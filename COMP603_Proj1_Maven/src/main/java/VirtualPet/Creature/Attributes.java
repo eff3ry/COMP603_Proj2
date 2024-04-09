@@ -9,8 +9,8 @@ package VirtualPet.Creature;
  * @author jeffe
  */
 public class Attributes {
-    protected String name;
-    protected String species;
+    public String name;
+    public String species;
    
     protected int sadness;
     protected int laziness;
