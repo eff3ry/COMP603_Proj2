@@ -14,7 +14,7 @@ public class App {
         
         choosePet();
         pet.displayStats();
-        
+        chooseAction();
         
         //Pet pet1 = new Cat(new Attributes(), new Resources(), new Needs());
         
