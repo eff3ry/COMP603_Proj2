@@ -10,9 +10,9 @@ package VirtualPet.Creature;
  */
 public abstract class Pet {
     
-    Attributes attributes;
-    Resources resources;
-    Needs needs;
+    public Attributes attributes;
+    public Resources resources;
+    public Needs needs;
     
     public Pet(String name, String species){
         attributes = new Attributes();
@@ -105,15 +105,26 @@ public abstract class Pet {
         String GREEN = "\u001B[32m";
         String YELLOW = "\u001B[33m";
         meterFillAmount = negative? 10 - meterFillAmount : meterFillAmount;
-        // Concise color mapping using a switch statement
-        return switch (meterFillAmount) {
-            case 0, 1, 2, 3 ->
-                GREEN;
-            case 4, 5, 6 ->
-                YELLOW;
-            default ->
-                RED;
-        };
+               
+        if (meterFillAmount <= 3)
+        {
+            return GREEN;
+        } else if (meterFillAmount <= 6)
+        {
+            return YELLOW;
+        } else {
+            return RED;
+        }
+        
+  // commented out cause it doesnt work in java 11      
+//        return switch (meterFillAmount) {
+//            case 0, 1, 2, 3 ->
+//                GREEN;
+//            case 4, 5, 6 ->
+//                YELLOW;
+//            default ->
+//                RED;
+//        };
     }
     
 }

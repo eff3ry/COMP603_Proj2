@@ -109,14 +109,15 @@ public abstract class Pet {
         String GREEN = "\u001B[32m";
         String YELLOW = "\u001B[33m";
         // Concise color mapping using a switch statement
-        return switch (meterFillAmount) {
-            case 0, 1, 2, 3 ->
-                GREEN;
-            case 4, 5, 6 ->
-                YELLOW;
-            default ->
-                RED;
-        };
+//        return switch (meterFillAmount) {
+//            case 0, 1, 2, 3 ->
+//                GREEN;
+//            case 4, 5, 6 ->
+//                YELLOW;
+//            default ->
+//                RED;
+//        };
+        return RED;
     }
 }
 
