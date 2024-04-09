@@ -25,25 +25,24 @@ public class Cat extends Pet{
     @Override
     public void feed() {
         
-        resources.food += 10;
-        
+        resources.addFood(10);
     }
 
     @Override
     protected void eat() {
         needs.hunger -= 10;
-        resources.food -= 10;
+        resources.addFood(-10);
     }
 
     @Override
     public void water() {
-        resources.water += 10;
+        resources.addWater(-10);
     }
 
     @Override
     protected void drink() {
         needs.thirst -= 10;
-        resources.water -= 10;
+        resources.addWater(-10);
     }
 
     @Override

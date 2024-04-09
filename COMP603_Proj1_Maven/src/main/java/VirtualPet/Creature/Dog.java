@@ -17,7 +17,7 @@ public class Dog extends Pet{
     
     @Override
     public void feed() {
-        resources.food += 10;
+        resources.addFood(10);
     }
 
     @Override

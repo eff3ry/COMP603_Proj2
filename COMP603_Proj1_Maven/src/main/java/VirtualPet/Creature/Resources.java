@@ -11,12 +11,36 @@ package VirtualPet.Creature;
 public class Resources {
     
     //Resources 0-100 these are variables with higher variables being better
-    int food;
-    int water;
+    private int food;
+    private int water;
     
     public Resources()
     {
         food = 50;
         water = 50;
+    }
+
+    public int getFood() {
+        return food;
+    }
+
+    public int getWater() {
+        return water;
+    }
+
+    public void setFood(int food) {
+        this.food = food;
+    }
+
+    public void setWater(int water) {
+        this.water = water;
+    }
+    
+    public void addFood(int food) {
+        this.food += food;
+    }
+
+    public void addWater(int water) {
+        this.water += water;
     }
 }
