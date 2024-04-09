@@ -23,6 +23,6 @@ public class Attributes {
         pickiness = (int) (Math.random() * 10) + 1;
         likesBeingPetted = (int) (Math.random() * 10) + 1;
         
-        sadness = 0;
+        sadness = 50;
     }
 }

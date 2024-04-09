@@ -13,8 +13,13 @@ public class App {
     public static void main(String[] args) {
         
         choosePet();
-        Pet pet3 = new Cat(new Attributes(), new Resources(), new Needs());
+        pet.displayStats();
+        
+        
+        //Pet pet1 = new Cat(new Attributes(), new Resources(), new Needs());
+        
     }
+ 
 
     public static void choosePet() {
         Scanner scanner = new Scanner(System.in);
@@ -44,7 +49,34 @@ public class App {
                 choosePet();
         }
     }
+    
+    
+    public static void chooseAction() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select an action:");
+        System.out.println("1. Feed " + pet.attributes.name);
+        System.out.println("2. Give water to " + pet.attributes.name);
+        System.out.println("3. Take " + pet.attributes.name +" on a walk");
+        System.out.println("4. Take "+pet.attributes.name+"to the toilet");
+        System.out.println("5. Play with "+pet.attributes.name);
+        String choice = scanner.nextLine();
 
+        switch (choice) {
+            case "1":
+                pet.feed();
+            case "2":
+                pet.water();
+            case "3":
+                pet.walk();
+            case "4":
+                pet.useToilet();
+            case "5":
+                pet.play();
+            default:
+                System.out.println("please enter a valid choice");
+                chooseAction();
+        }
+    }
     public static String getName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter pet name: ");

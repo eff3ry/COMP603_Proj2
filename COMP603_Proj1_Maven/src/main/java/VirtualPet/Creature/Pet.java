@@ -22,8 +22,8 @@ public abstract class Pet {
         this.attributes.name = name;
         this.attributes.species = species;
         
-        resources.initResources();
-        needs.initNeeds();
+        
+        
     }
     
     //constuctor for loading from file;
@@ -49,7 +49,7 @@ public abstract class Pet {
     
     public void updateSadness() {
         int highestNeed = Math.max(needs.hunger, Math.max(needs.exercise, needs.bladder));
-        if (highestNeed >= 100) {
+        if (highestNeed == 100) {
             attributes.sadness += 10;
         }
     }
@@ -61,7 +61,7 @@ public abstract class Pet {
     public void displayStats() {
         System.out.println("Name: " + attributes.name);
         System.out.println("Species: " + attributes.species);
-        System.out.println("Needs ↴");
+        System.out.println("Needs ->");
         printPetMeter(needs.thirst, "Thirst", false);
         printPetMeter(needs.hunger, "Hunger", false);
         printPetMeter(needs.exercise, "Exercise", false);
@@ -72,13 +72,13 @@ public abstract class Pet {
         //System.out.println("Exercise: " + exercise);
         //System.out.println("Bladder: " + bladder);
         //System.out.println("Sadness: "  + sadness);
-        System.out.println("Resources ↴");
+        System.out.println("Resources ->");
         printPetMeter(resources.food, "Food", true);
         printPetMeter(resources.water, "Water", true);
     }
     
     //Method by jeffery
-    private static void printPetMeter(int value, String attribute, boolean negative) {
+    private static void printPetMeter(int value, String attribute, boolean flipColours) {
         String RESET = "\u001B[0m";
         String GREY = "\033[2;30m";
 
@@ -87,7 +87,7 @@ public abstract class Pet {
         System.out.print(attribute + ": " + value + "/100 [");
 
         for (int i = 0; i < meterFillAmount; i++) {
-            System.out.print(getMeterColor(i, negative));
+            System.out.print(getMeterColor(i, flipColours));
             System.out.print("=");
         }
         //System.out.print("|");

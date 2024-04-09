@@ -75,8 +75,5 @@ public class Cat extends Pet{
         {
             System.out.println(attributes.name + " really needs to pee and can't do anything untill you take them to the litterbox");
         }
-    }
-
-    
-    
+    } 
 }

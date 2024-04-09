@@ -14,7 +14,7 @@ public class Resources {
     int food;
     int water;
     
-    public void initResources()
+    public Resources()
     {
         food = 50;
         water = 50;

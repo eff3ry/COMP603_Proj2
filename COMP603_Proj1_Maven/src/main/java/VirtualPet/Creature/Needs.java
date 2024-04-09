@@ -17,7 +17,7 @@ public class Needs {
     int bladder;
     int exercise;
     
-    public void initNeeds()
+    public Needs()
     {
         thirst = 10;
         hunger = 10;
