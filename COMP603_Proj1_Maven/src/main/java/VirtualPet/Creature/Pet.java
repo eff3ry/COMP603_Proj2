@@ -67,8 +67,8 @@ public abstract class Pet {
         //System.out.println("Bladder: " + bladder);
         //System.out.println("Sadness: "  + sadness);
         System.out.println("Resources ->");
-        printPetMeter(resources.food, "Food", true);
-        printPetMeter(resources.water, "Water", true);
+        printPetMeter(resources.getFood(), "Food", true);
+        printPetMeter(resources.getWater(), "Water", true);
     }
     
     //Method by jeffery
@@ -100,11 +100,9 @@ public abstract class Pet {
         String YELLOW = "\u001B[33m";
         meterFillAmount = negative? 10 - meterFillAmount : meterFillAmount;
                
-        if (meterFillAmount <= 3)
-        {
+        if (meterFillAmount <= 3) {
             return GREEN;
-        } else if (meterFillAmount <= 6)
-        {
+        } else if (meterFillAmount <= 6) {
             return YELLOW;
         } else {
             return RED;
