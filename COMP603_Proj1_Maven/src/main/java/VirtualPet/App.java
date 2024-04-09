@@ -54,11 +54,11 @@ public class App {
     public static void chooseAction() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select an action:");
-        System.out.println("1. Feed " + pet.attributes.name);
-        System.out.println("2. Give water to " + pet.attributes.name);
-        System.out.println("3. Take " + pet.attributes.name +" on a walk");
-        System.out.println("4. Take "+pet.attributes.name+"to the toilet");
-        System.out.println("5. Play with "+pet.attributes.name);
+        System.out.println("1. Feed " + pet.attributes.getName());
+        System.out.println("2. Give water to " + pet.attributes.getName());
+        System.out.println("3. Take " + pet.attributes.getName() +" on a walk");
+        System.out.println("4. Take "+pet.attributes.getName()+"to the toilet");
+        System.out.println("5. Play with "+pet.attributes.getName());
         String choice = scanner.nextLine();
 
         switch (choice) {

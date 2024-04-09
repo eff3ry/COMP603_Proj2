@@ -17,13 +17,7 @@ public abstract class Pet {
     public Pet(String name, String species){
         attributes = new Attributes(name, species);
         resources = new Resources();
-        needs = new Needs();
-        
-        this.attributes.name = name;
-        this.attributes.species = species;
-        
-        
-        
+        needs = new Needs();   
     }
     
     //constuctor for loading from file;
@@ -50,7 +44,7 @@ public abstract class Pet {
     public void updateSadness() {
         int highestNeed = Math.max(needs.hunger, Math.max(needs.exercise, needs.bladder));
         if (highestNeed == 100) {
-            attributes.sadness += 10;
+            attributes.addSadness(10);
         }
     }
     
@@ -59,8 +53,8 @@ public abstract class Pet {
     }
     
     public void displayStats() {
-        System.out.println("Name: " + attributes.name);
-        System.out.println("Species: " + attributes.species);
+        System.out.println("Name: " + attributes.getName());
+        System.out.println("Species: " + attributes.getSpecies());
         System.out.println("Needs ->");
         printPetMeter(needs.thirst, "Thirst", false);
         printPetMeter(needs.hunger, "Hunger", false);
