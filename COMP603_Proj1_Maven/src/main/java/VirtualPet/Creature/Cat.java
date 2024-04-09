@@ -26,6 +26,7 @@ public class Cat extends Pet{
     public void feed() {
         
         resources.food += 10;
+        
     }
 
     @Override

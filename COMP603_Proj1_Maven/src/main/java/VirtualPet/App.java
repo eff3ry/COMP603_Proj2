@@ -23,7 +23,7 @@ public class App {
 
     public static void choosePet() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose your pet:");
+        System.out.println("Choose your pet (x to exit):");
         System.out.println("1. Dog");
         System.out.println("2. Cat");
         System.out.println("3. Hamster");
@@ -44,6 +44,8 @@ public class App {
             case "4":
                 pet = new Rabbit(getName());
                 break;
+            
+                
             default:
                 System.out.println("please enter a valid choice");
                 choosePet();
@@ -53,7 +55,7 @@ public class App {
     
     public static void chooseAction() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Select an action:");
+        System.out.println("Select an action (x to exit):");
         System.out.println("1. Feed " + pet.attributes.getName());
         System.out.println("2. Give water to " + pet.attributes.getName());
         System.out.println("3. Take " + pet.attributes.getName() +" on a walk");
@@ -64,18 +66,28 @@ public class App {
         switch (choice) {
             case "1":
                 pet.feed();
+                break;
             case "2":
                 pet.water();
+                break;
             case "3":
                 pet.walk();
+                break;
             case "4":
                 pet.useToilet();
+                break;
             case "5":
                 pet.play();
+                break;
+            
             default:
                 System.out.println("please enter a valid choice");
                 chooseAction();
         }
+    }
+    
+    public static void checkForExit() {
+        
     }
     public static String getName() {
         Scanner scanner = new Scanner(System.in);
