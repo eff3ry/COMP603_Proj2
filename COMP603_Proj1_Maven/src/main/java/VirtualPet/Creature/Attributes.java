@@ -13,9 +13,9 @@ public class Attributes {
     private String species;
    
     private int sadness;
-    private int laziness;
-    private int pickiness;
-    private int likesBeingPetted;
+    public int laziness;
+    public int pickiness;
+    public int likesBeingPetted;
     
     public Attributes(String name, String species)
     {

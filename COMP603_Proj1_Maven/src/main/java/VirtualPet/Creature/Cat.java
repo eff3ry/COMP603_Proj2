@@ -27,11 +27,12 @@ public class Cat extends Pet{
         
         resources.addFood(10);
     }
+    
 
     @Override
     protected void eat() {
-        needs.hunger -= 10;
-        resources.addFood(-10);
+        needs.hunger -= (10 + (10 - attributes.pickiness));
+        resources.addFood((-10 - (10 - attributes.pickiness)));
     }
 
     @Override
@@ -47,7 +48,8 @@ public class Cat extends Pet{
 
     @Override
     public void walk() {
-        System.out.println("Your cat doesnt like going on walks..\nExercise unchanged.");
+        System.out.println(attributes.getName() + " doesnt like going on walks..\nExercise unchanged.");
+        
     }
 
     @Override
@@ -57,7 +59,8 @@ public class Cat extends Pet{
 
     @Override
     public void play() {
-        needs.exercise -= 10;
+        System.out.println("You played with " + attributes.getName());
+        needs.exercise -= (10 + (10 - attributes.laziness));
     }
 
     @Override

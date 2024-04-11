@@ -59,25 +59,42 @@ public class App {
         System.out.println("1. Feed " + pet.attributes.getName());
         System.out.println("2. Give water to " + pet.attributes.getName());
         System.out.println("3. Take " + pet.attributes.getName() +" on a walk");
-        System.out.println("4. Take "+pet.attributes.getName()+"to the toilet");
+        System.out.println("4. Take "+pet.attributes.getName()+" to the toilet");
         System.out.println("5. Play with "+pet.attributes.getName());
         String choice = scanner.nextLine();
 
         switch (choice) {
             case "1":
                 pet.feed();
+                pet.displayStats();
+                chooseAction();
                 break;
             case "2":
                 pet.water();
+                pet.displayStats();
+                chooseAction();
                 break;
             case "3":
                 pet.walk();
+                pet.displayStats();
+                chooseAction();
                 break;
             case "4":
                 pet.useToilet();
+                pet.displayStats();
+                chooseAction();
                 break;
             case "5":
                 pet.play();
+                pet.displayStats();
+                chooseAction();
+                break;
+                
+                
+            case "x":
+                System.out.println("Bye bye!");
+                //SaverLoader.save(pet);
+                System.exit(0);
                 break;
             
             default:
@@ -95,59 +112,4 @@ public class App {
         String name = scanner.nextLine();
         return name;
     }
-
-    //test();
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Welcome to the Digital Pet Paradise!");
-//        System.out.println("Please select an option:");
-//        
-//        //TODO - some shit to do with species selection :skull:
-//        System.out.println("1. Dog");
-//        System.out.println("2. Cat");
-//        System.out.println("3. Hamster");
-//        System.out.println("4. Rabbit");
-//
-//        String choice;
-//        String userInput;
-//
-//        
-//        System.out.print("Enter your choice (1-4): ");
-//        switch(choice) {
-//            case "Dog","dog":
-//              choice = "Dog";
-//              break;
-//            case "Cat", "cat":
-//              choice = "Cat";
-//              break;
-//            case "Hamster", "hamster":
-//              choice = "Hamster";
-//              break;
-//            case "Rabbit", "rabbit":
-//              choice = "Rabbit";
-//              break;
-//            default:
-//              System.out.print("Please enter a valid Species.");
-//          }
-    //System.out.print("Enter a name: ");
-    //userInput = scanner.nextLine();
-    //scanner.nextLine();
-    //Pet pet = new Pet(choice, userInput);   
-//        Pet pet = new Pet("test Pet", "cat");    
-//        pet.needs.hunger = 80;
-//        printPetMeter(pet.needs.hunger, "Hunger");
-//        pet.needs.thirst = 30;
-//        printPetMeter(pet.needs.thirst, "Thirst");
-//        pet.needs.sadness = 10;
-//        printPetMeter(pet.needs.sadness, "Sadness");
-    
-    
-    
-
-//    private static void test() {
-//        Pet pet = new Pet("heheha", "Cat");
-//        Pet[] pets = new Pet[1];
-//        pets[0] = pet;
-//        
-//        SaverLoader.save(pets);
-//    }
 }

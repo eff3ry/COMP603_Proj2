@@ -38,7 +38,7 @@ public abstract class Pet {
     public abstract void walk();
     public abstract void useToilet();
     public abstract void play();
-        
+    
     public abstract void behaviour();
     
     public void updateSadness() {
@@ -60,7 +60,7 @@ public abstract class Pet {
         printPetMeter(needs.hunger, "Hunger", false);
         printPetMeter(needs.exercise, "Exercise", false);
         printPetMeter(needs.bladder, "Bladder", false);
-        printPetMeter(attributes.getSadness(), "Sandness", false);
+        printPetMeter(attributes.getSadness(), "Sadness", false);
         //System.out.println("Thirst: " + thirst);
         //System.out.println("Hunger: " + hunger);
         //System.out.println("Exercise: " + exercise);
