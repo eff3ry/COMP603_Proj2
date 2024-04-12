@@ -14,6 +14,7 @@ public class Resources {
     private int food;
     private int water;
     
+    
     public Resources()
     {
         food = 50;

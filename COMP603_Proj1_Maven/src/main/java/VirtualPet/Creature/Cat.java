@@ -25,7 +25,7 @@ public class Cat extends Pet{
     @Override
     public void feed() {
         
-        resources.addFood(10);
+        resources.addFood(-10);
     }
     
 
@@ -54,13 +54,43 @@ public class Cat extends Pet{
 
     @Override
     public void useToilet() {
-        needs.bladder -= 10;
+        if(needs.bladder >= 10) {
+            needs.bladder -= 10;
+        }
+        if (needs.bladder > 0 && needs.bladder < 10) {
+            
+        }
+        else {
+            System.out.println(attributes.getName() + "has an empty bladder!\nBladder unchanged");
+        }
+        
     }
 
     @Override
     public void play() {
-        System.out.println("You played with " + attributes.getName());
-        needs.exercise -= (10 + (10 - attributes.laziness));
+        if(needs.exercise == 0) {
+            System.out.println(attributes.getName()+" does not want to play!");
+        }
+        else {
+            System.out.println("You played with " + attributes.getName());
+            int rand1 = (int) (Math.random() * 10) + 1;
+            if (rand1 == 0) {
+                System.out.println(attributes.getName() + " found 10 food!");
+                resources.addFood(10);
+            }
+            if (rand1 == 1) {
+                System.out.println(attributes.getName() + " found 10 water!");
+                resources.addWater(10);
+            }
+
+            needs.exercise -= (10 + (10 - attributes.laziness));
+            if (needs.exercise < 0) {
+                needs.exercise = 0;
+            }
+        }
+
+        
+        
     }
 
     @Override
