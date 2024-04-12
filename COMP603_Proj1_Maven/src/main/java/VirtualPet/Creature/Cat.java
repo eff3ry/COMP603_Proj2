@@ -25,7 +25,7 @@ public class Cat extends Pet{
     @Override
     public void feed() {
         
-        resources.addFood(-10);
+        resources.addFood(10);
     }
     
 
@@ -37,7 +37,7 @@ public class Cat extends Pet{
 
     @Override
     public void water() {
-        resources.addWater(-10);
+        resources.addWater(10);
     }
 
     @Override
