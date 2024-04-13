@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package VirtualPet;
-
-
 /**
  *
  * @author jeffe
@@ -14,6 +12,7 @@ import VirtualPet.Creature.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -22,6 +21,10 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SaverLoader {
 
@@ -29,18 +32,32 @@ public class SaverLoader {
     {
         try {
             //create folder for the pet jsons
-            Path path = Paths.get("./resources/"+pet.attributes.getName());
+            Path path = Paths.get("./resources/pets/"+pet.attributes.getName());
             Files.createDirectories(path);
-            
-            
-            // Write JSON to file
-//            FileWriter file = new FileWriter("./resources/data.json");
-//            file.write(jsonString);
-//            file.flush();
-//            file.close();
+            saveJsonFile(path.toString()+"/", pet.attributes);
+            saveJsonFile(path.toString()+"/resources.json", pet.resources);
+            saveJsonFile(path.toString()+"/needs.json", pet.needs);
             
         }catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    
+    public static void load()
+    {
+        File petFolder = new File("./resources/pets/");
+        
+        List<File> dirs = Arrays.stream(petFolder.listFiles())
+                .filter(File::isDirectory)
+                .collect(Collectors.toList());
+        
+        for (File dir : dirs)
+        {
+            File[] jsons = dir.listFiles();
+            if (jsons.contains("attributes.json"))
+            {
+                //yay
+            }
         }
     }
     
