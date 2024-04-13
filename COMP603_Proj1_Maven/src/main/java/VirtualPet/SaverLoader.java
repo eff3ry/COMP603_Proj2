@@ -53,17 +53,47 @@ public class SaverLoader {
         
         File petFolder = new File("./resources/pets/");
         
-        List<File> dirs = Arrays.stream(petFolder.listFiles())
-                .filter(File::isDirectory)
-                .collect(Collectors.toList());
+        List<File> dirs = loadDirectorys(petFolder);
         
-        for (File directory : dirs) {
+        for (File directory : dirs) {  
+            if(doesDirHaveReqJson(directory))
+            {
+                Attributes attributes = null;
+                Needs needs = null;
+                Resources resources = null;
+                
+                File[] files = directory.listFiles();
+                
+                for (File file : files) {
+                    switch (file.getName())
+                    {
+                        case "attributes.json":
+                            attributes = loadJsonFile(file.toString(), Attributes.class);
+                            break;
+                        
+                        case "resources.json":
+                            resources = loadJsonFile(file.toString(), Resources.class);
+                            break;
+                            
+                        case "needs.json":
+                            needs = loadJsonFile(file.toString(), Needs.class);
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                }
+            }
+            
+            
             File[] files = directory.listFiles();
             if (files != null) { // Check if files exist before iterating
                 int dirHasFiles = 0;
                 Attributes attributes = null;
                 Needs needs = null;
                 Resources resources = null;
+                
+                
                 
                 for (File file : files) {
                     if (file.getName().equals("attributes.json")) {
@@ -86,24 +116,65 @@ public class SaverLoader {
                 {
                     Pet pet;
                     //all required files are there, load pet, find class
-                    switch(attributes.getSpecies())
-                    {
-                        case "Cat":
-                            pet = new Cat(attributes, resources, needs);
-                            pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
-                            petMap.put(pet.attributes.getName(), pet);
-                            break;
-                            
-                        default:
-                            System.out.println("Species unknown cannot load pet");
-                            break;
-                    }
                     
+                    
+                        switch (attributes.getSpecies()) {
+                            case "Cat":
+                                pet = new Cat(attributes, resources, needs);
+                                pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
+                                petMap.put(pet.saveLoadID, pet);
+                                break;
+
+                            default:
+                                System.out.println("Species unknown cannot load pet");
+                                break;
+                        }
                 }
             }
         } 
         return petMap;
     }
+    
+    private static List<File> loadDirectorys(File path)
+    {
+        List<File> dirs = Arrays.stream(path.listFiles())
+                .filter(File::isDirectory)
+                .collect(Collectors.toList());
+        
+        return dirs;
+    }
+    
+    private static boolean doesDirHaveReqJson(File directory)
+    {
+        File[] files = directory.listFiles();
+        
+        int dirHasFiles = 0;
+        
+        if(files != null)
+        {
+            for (File file : files) {
+                if (file.getName().equals("attributes.json")) {
+                    System.out.println("Found attributes.json in directory: " + directory.getName());
+                    //attributes = loadJsonFile(file.toString(), Attributes.class);
+                    dirHasFiles += 1;
+                } else if (file.getName().equals("resources.json")) {
+                    System.out.println("Found resources.json in directory: " + directory.getName());
+                    //resources = loadJsonFile(file.toString(), Resources.class);
+                    dirHasFiles += 2;
+                } else if (file.getName().equals("needs.json")) {
+                    System.out.println("Found needs.json in directory: " + directory.getName());
+                    //needs = loadJsonFile(file.toString(), Needs.class);
+                    dirHasFiles += 3;
+                }
+                if(dirHasFiles == 6)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     
     private static String generateJson(Object obj)
     {
@@ -152,7 +223,12 @@ public class SaverLoader {
         }
         
         Gson gson = new Gson();
-        return gson.fromJson(path, clazz);
+        try {
+            return gson.fromJson(path, clazz);
+        } catch (Exception e) {
+            System.out.println("Error occured loading json into class");
+            return null;
+        }
     }
     
     
