@@ -73,7 +73,7 @@ public class Cat extends Pet{
         }
         else {
             System.out.println("You played with " + attributes.getName());
-            int rand1 = (int) (Math.random() * 10) + 1;
+            int rand1 = (int) (Math.random() * 10);
             if (rand1 == 0) {
                 System.out.println(attributes.getName() + " found 10 food!");
                 resources.addFood(10);
@@ -88,9 +88,6 @@ public class Cat extends Pet{
                 needs.exercise = 0;
             }
         }
-
-        
-        
     }
 
     @Override
