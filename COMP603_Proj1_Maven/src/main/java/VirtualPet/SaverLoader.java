@@ -51,14 +51,18 @@ public class SaverLoader {
                 .filter(File::isDirectory)
                 .collect(Collectors.toList());
         
-        for (File dir : dirs)
-        {
-            File[] jsons = dir.listFiles();
-            if (jsons.contains("attributes.json"))
-            {
-                //yay
+        for (File directory : dirs) {
+            File[] files = directory.listFiles();
+            if (files != null) { // Check if files exist before iterating
+                for (File file : files) {
+                    if (file.getName().equals("attributes.json")) {
+                        System.out.println("Found attributes.json in directory: " + directory.getName());
+                        // Add logic to process the file here (e.g., read contents)
+                        break; // Stop iterating the current directory after finding the file
+                    }
+                 }
             }
-        }
+        } 
     }
     
     private static String generateJson(Object obj)
