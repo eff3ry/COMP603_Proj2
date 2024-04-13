@@ -14,6 +14,10 @@ public class Dog extends Pet{
     {
         super(name, "Dog");
     }
+
+    public Dog(Attributes attributes, Resources resources, Needs needs) {
+        super(attributes,resources,needs);
+    }
     
     @Override
     public void feed() {

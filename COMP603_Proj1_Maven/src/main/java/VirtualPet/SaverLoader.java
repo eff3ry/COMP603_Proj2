@@ -47,7 +47,7 @@ public class SaverLoader {
         }
     }
     
-    public static HashMap<String, Pet> load()
+    public static HashMap<String, Pet> loadAll()
     {
         HashMap<String,Pet> petMap = new HashMap();
         
@@ -83,52 +83,38 @@ public class SaverLoader {
                             break;
                     }
                 }
-            }
-            
-            
-            File[] files = directory.listFiles();
-            if (files != null) { // Check if files exist before iterating
-                int dirHasFiles = 0;
-                Attributes attributes = null;
-                Needs needs = null;
-                Resources resources = null;
-                
-                
-                
-                for (File file : files) {
-                    if (file.getName().equals("attributes.json")) {
-                        System.out.println("Found attributes.json in directory: " + directory.getName());
-                        attributes = loadJsonFile(file.toString(), Attributes.class);
-                        dirHasFiles += 1;
-                    } else if (file.getName().equals("resources.json"))
-                    {
-                        System.out.println("Found resources.json in directory: " + directory.getName());
-                        resources = loadJsonFile(file.toString(), Resources.class);
-                        dirHasFiles += 2;
-                    } else if (file.getName().equals("needs.json"))
-                    {
-                        System.out.println("Found needs.json in directory: " + directory.getName());
-                        needs = loadJsonFile(file.toString(), Needs.class);
-                        dirHasFiles += 3;
-                    }
-                }
-                if (dirHasFiles == 6)
-                {
-                    Pet pet;
-                    //all required files are there, load pet, find class
-                    
-                    
-                        switch (attributes.getSpecies()) {
-                            case "Cat":
-                                pet = new Cat(attributes, resources, needs);
-                                pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
-                                petMap.put(pet.saveLoadID, pet);
-                                break;
 
-                            default:
-                                System.out.println("Species unknown cannot load pet");
-                                break;
-                        }
+                Pet pet;
+                //all required files are there, load pet, find class
+
+                switch (attributes.getSpecies()) {
+                    case "Cat":
+                        pet = new Cat(attributes, resources, needs);
+                        pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
+                        petMap.put(pet.saveLoadID, pet);
+                        break;
+
+                    case "Dog":
+                        pet = new Dog(attributes, resources, needs);
+                        pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
+                        petMap.put(pet.saveLoadID, pet);
+                        break;
+                        
+                    case "Hamster":
+                        pet = new Hamster(attributes, resources, needs);
+                        pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
+                        petMap.put(pet.saveLoadID, pet);
+                        break;
+                        
+                    case "Rabbit":
+                        pet = new Rabbit(attributes, resources, needs);
+                        pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
+                        petMap.put(pet.saveLoadID, pet);
+                        break;
+                        
+                    default:
+                        System.out.println("Species unknown cannot load pet");
+                        break;
                 }
             }
         } 
