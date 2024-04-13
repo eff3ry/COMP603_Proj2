@@ -86,13 +86,19 @@ public class SaverLoader {
                 {
                     Pet pet;
                     //all required files are there, load pet, find class
-                    if (attributes.getSpecies().equals("Cat"))
+                    switch(attributes.getSpecies())
                     {
-                        pet = new Cat(attributes, resources, needs);
-                        pet.saveLoadID = directory.getName();
-                                
-                        petMap.put(pet.attributes.getName(), pet);
-                    } //elif other species
+                        case "Cat":
+                            pet = new Cat(attributes, resources, needs);
+                            pet.saveLoadID = directory.getName(); //set to current dir name to make sure we save from where we loaded.
+                            petMap.put(pet.attributes.getName(), pet);
+                            break;
+                            
+                        default:
+                            System.out.println("Species unknown cannot load pet");
+                            break;
+                    }
+                    
                 }
             }
         } 
