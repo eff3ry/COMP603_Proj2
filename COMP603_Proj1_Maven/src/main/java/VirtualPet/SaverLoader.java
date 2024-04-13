@@ -55,26 +55,35 @@ public class SaverLoader {
             File[] files = directory.listFiles();
             if (files != null) { // Check if files exist before iterating
                 int dirHasFiles = 0;
+                Attributes attributes = null;
+                Needs needs = null;
+                Resources resources = null;
+                
                 for (File file : files) {
                     if (file.getName().equals("attributes.json")) {
                         System.out.println("Found attributes.json in directory: " + directory.getName());
-                        Attributes attributes = loadJsonFile(file.toString(), Attributes.class);
+                        attributes = loadJsonFile(file.toString(), Attributes.class);
                         dirHasFiles += 1;
                     } else if (file.getName().equals("resources.json"))
                     {
                         System.out.println("Found resources.json in directory: " + directory.getName());
-                        Resources resource = loadJsonFile(file.toString(), Resources.class);
+                        resources = loadJsonFile(file.toString(), Resources.class);
                         dirHasFiles += 2;
                     } else if (file.getName().equals("needs.json"))
                     {
                         System.out.println("Found needs.json in directory: " + directory.getName());
-                        Needs needs = loadJsonFile(file.toString(), Needs.class);
+                        needs = loadJsonFile(file.toString(), Needs.class);
                         dirHasFiles += 3;
                     }
                 }
                 if (dirHasFiles == 6)
                 {
-                    //all required files are there
+                    Pet pet;
+                    //all required files are there, load pet, find class
+                    if (attributes.getSpecies().equals("Cat"))
+                    {
+                        pet = new Cat(attributes, resources, needs);
+                    } //elif other species
                 }
             }
         } 
