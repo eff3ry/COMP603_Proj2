@@ -14,6 +14,8 @@ public abstract class Pet {
     public Resources resources;
     public Needs needs;
     
+    public String saveLoadID; //folder name??
+    
     public Pet(String name, String species){
         attributes = new Attributes(name, species);
         resources = new Resources();
