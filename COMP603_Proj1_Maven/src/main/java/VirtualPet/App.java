@@ -14,9 +14,9 @@ public class App {
         
         printIntoAscii();
         
-        //choosePet();
-        //pet.displayStats();
-        //chooseAction();
+        choosePet();
+        pet.displayStats();
+        chooseAction();
         
         Pet pet1 = new Cat(new Attributes("skibidi", "alpha"), new Resources(), new Needs());
         SaverLoader.save(pet1);

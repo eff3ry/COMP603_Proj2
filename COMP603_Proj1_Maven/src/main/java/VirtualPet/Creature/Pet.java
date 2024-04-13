@@ -63,11 +63,6 @@ public abstract class Pet {
         printPetMeter(needs.exercise, "Exercise", false);
         printPetMeter(needs.bladder, "Bladder", false);
         printPetMeter(attributes.getSadness(), "Sadness", false);
-        //System.out.println("Thirst: " + thirst);
-        //System.out.println("Hunger: " + hunger);
-        //System.out.println("Exercise: " + exercise);
-        //System.out.println("Bladder: " + bladder);
-        //System.out.println("Sadness: "  + sadness);
         System.out.println("Resources ->");
         printPetMeter(resources.getFood(), "Food", true);
         printPetMeter(resources.getWater(), "Water", true);
