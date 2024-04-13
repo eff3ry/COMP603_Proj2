@@ -104,7 +104,7 @@ public class Cat extends Pet{
             System.out.println(attributes.getName() + " was thirsty and drank.");
         } else if (mostUrgentNeed == needs.bladder)
         {
-            System.out.println(attributes.getName() + " really needs to pee and can't do anything untill you take them to the litterbox");
+            System.out.println(attributes.getName() + " really needs to pee and can't do anything until you take them to the litterbox");
         }
     } 
 }
