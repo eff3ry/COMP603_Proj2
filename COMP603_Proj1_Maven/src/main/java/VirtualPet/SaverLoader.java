@@ -32,7 +32,11 @@ public class SaverLoader {
     {
         try {
             //create folder for the pet jsons
-            Path path = Paths.get("./resources/pets/"+pet.attributes.getName());
+            if (pet.saveLoadID == null || pet.saveLoadID.isBlank())
+            {
+                pet.saveLoadID = pet.attributes.getName();
+            }
+            Path path = Paths.get("./resources/pets/"+pet.saveLoadID);
             Files.createDirectories(path);
             saveJsonFile(path.toString()+"/", pet.attributes);
             saveJsonFile(path.toString()+"/resources.json", pet.resources);
@@ -43,8 +47,10 @@ public class SaverLoader {
         }
     }
     
-    public static void load()
+    public static HashMap<String, Pet> load()
     {
+        HashMap<String,Pet> petMap = new HashMap();
+        
         File petFolder = new File("./resources/pets/");
         
         List<File> dirs = Arrays.stream(petFolder.listFiles())
@@ -83,10 +89,14 @@ public class SaverLoader {
                     if (attributes.getSpecies().equals("Cat"))
                     {
                         pet = new Cat(attributes, resources, needs);
+                        pet.saveLoadID = directory.getName();
+                                
+                        petMap.put(pet.attributes.getName(), pet);
                     } //elif other species
                 }
             }
         } 
+        return petMap;
     }
     
     private static String generateJson(Object obj)
