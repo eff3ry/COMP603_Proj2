@@ -12,14 +12,27 @@ public class App {
     
     public static void main(String[] args) {
         
-        choosePet();
-        pet.displayStats();
-        chooseAction();
+        printIntoAscii();
         
-        //Pet pet1 = new Cat(new Attributes(), new Resources(), new Needs());
+        //choosePet();
+        //pet.displayStats();
+        //chooseAction();
+        
+        Pet pet1 = new Cat(new Attributes("skibidi", "alpha"), new Resources(), new Needs());
+        SaverLoader.save(pet1);
         
     }
- 
+    
+    public static void printIntoAscii()
+    {
+        System.out.println(" _    ___      __              __   ____       __ \n" +
+        "| |  / (_)____/ /___  ______ _/ /  / __ \\___  / /_\n" +
+        "| | / / / ___/ __/ / / / __ `/ /  / /_/ / _ \\/ __/\n" +
+        "| |/ / / /  / /_/ /_/ / /_/ / /  / ____/  __/ /_  \n" +
+        "|___/_/_/   \\__/\\__,_/\\__,_/_/  /_/    \\___/\\__/  \n" +
+        "                                                  \n" +
+        "");
+    }
 
     public static void choosePet() {
         Scanner scanner = new Scanner(System.in);
