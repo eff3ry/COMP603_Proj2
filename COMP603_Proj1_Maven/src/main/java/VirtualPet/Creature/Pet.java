@@ -34,16 +34,13 @@ public abstract class Pet {
     
         
     abstract public void feed();
-    //abstract protected void eat();
     
     abstract public void water();
-    //abstract protected void drink();
     
     public abstract void walk();
     public abstract void useToilet();
     public abstract void play();
     
-    //public abstract void behaviour();
     
     public void updateSadness() {
         int highestNeed = Math.max(needs.getHunger(), Math.max(needs.getExercise(), needs.getBladder()));

@@ -47,11 +47,6 @@ public class Cat extends Pet{
     }
     
 
-//    @Override
-//    protected void eat() {
-//        needs.hunger -= (10 + (10 - attributes.pickiness));
-//        resources.addFood((-10 - (10 - attributes.pickiness)));
-//    }
 
     @Override
     public void water() {
@@ -76,10 +71,7 @@ public class Cat extends Pet{
 
     }
 
-//    @Override
-//    protected void drink() {
-//        
-//    }
+
 
     @Override
     public void walk() {
@@ -127,22 +119,4 @@ public class Cat extends Pet{
             }
         }
     }
-
-//    @Override
-//    public void behaviour() {
-//        int mostUrgentNeed = Math.max(needs.hunger, Math.max(needs.thirst, needs.bladder));
-//        
-//        if (mostUrgentNeed == needs.hunger)
-//        {
-//            eat();
-//            System.out.println(attributes.getName() + " was hungry and ate.");
-//        } else if (mostUrgentNeed == needs.thirst)
-//        {
-//            drink();
-//            System.out.println(attributes.getName() + " was thirsty and drank.");
-//        } else if (mostUrgentNeed == needs.bladder)
-//        {
-//            System.out.println(attributes.getName() + " really needs to pee and can't do anything until you take them to the litterbox");
-//        }
-//    } 
 }

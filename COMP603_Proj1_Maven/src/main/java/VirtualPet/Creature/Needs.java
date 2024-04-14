@@ -78,7 +78,4 @@ public class Needs {
         this.exercise += amount;
     }
     
-    
-    
-    
 }

@@ -120,7 +120,7 @@ public class App {
 
     public static void choosePetToCreate() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose your pet (x to exit):");
+        System.out.println("Choose your pet species (x to exit):");
         System.out.println("1. Dog");
         System.out.println("2. Cat");
         System.out.println("3. Hamster");
