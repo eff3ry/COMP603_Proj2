@@ -31,8 +31,8 @@ public class Cat extends Pet{
 
     @Override
     protected void eat() {
-        needs.setHunger(needs.getHunger() - (10 + (10 - attributes.pickiness)));
-        resources.addFood((-10 - (10 - attributes.pickiness)));
+        needs.modifyHunger(-10 - (10 - attributes.pickiness));
+        resources.addFood(-10 - (10 - attributes.pickiness));
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Cat extends Pet{
 
     @Override
     protected void drink() {
-        needs.setThirst(needs.getThirst() - 10);
+        needs.modifyThirst(- 10);
         resources.addWater(-10);
     }
 
@@ -55,7 +55,7 @@ public class Cat extends Pet{
     @Override
     public void useToilet() {
         if(needs.getBladder() >= 10) {
-            needs.setBladder(needs.getBladder() - 10);
+            needs.modifyBladder(-10);
         }
         if (needs.getBladder() > 0 && needs.getBladder() < 10) {
             
