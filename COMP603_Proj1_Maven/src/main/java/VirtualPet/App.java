@@ -23,6 +23,10 @@ public class App {
         //SaverLoader.save(pet1);
         
         HashMap<String,Pet> petMap = SaverLoader.loadAll();
+        for (String key : petMap.keySet())
+        {
+            petMap.get(key).displayStats();
+        }
         
     }
     
