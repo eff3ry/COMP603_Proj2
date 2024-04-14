@@ -72,13 +72,21 @@ public abstract class Pet {
     private static void printPetMeter(int value, String attribute, boolean flipColours) {
         String RESET = "\u001B[0m";
         String GREY = "\033[2;30m";
+        String RED = "\u001B[31m";
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
 
+        String[] needsColours = new String[]{GREEN,GREEN,GREEN,YELLOW,YELLOW,YELLOW,YELLOW,RED,RED,RED}; 
+        String[] resourcesColours = new String[]{RED,RED,YELLOW,YELLOW,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN}; 
+        
+        String[] colours = flipColours? resourcesColours : needsColours;
+        
         int meterFillAmount = value / 10;
 
         System.out.print(attribute + ": " + value + "/100 [");
 
         for (int i = 0; i < meterFillAmount; i++) {
-            System.out.print(getMeterColor(i, flipColours));
+            System.out.print(colours[i]);
             System.out.print("=");
         }
         //System.out.print("|");
@@ -87,33 +95,5 @@ public abstract class Pet {
             System.out.print("=");
         }
         System.out.println(RESET + "]");
-
     }
-
-    //Method by jeffery
-    private static String getMeterColor(int meterFillAmount, boolean negative) {
-        String RED = "\u001B[31m";
-        String GREEN = "\u001B[32m";
-        String YELLOW = "\u001B[33m";
-        meterFillAmount = negative? 10 - meterFillAmount : meterFillAmount;
-               
-        if (meterFillAmount <= 3) {
-            return GREEN;
-        } else if (meterFillAmount <= 6) {
-            return YELLOW;
-        } else {
-            return RED;
-        }
-        
-  // commented out cause it doesnt work in java 11      
-//        return switch (meterFillAmount) {
-//            case 0, 1, 2, 3 ->
-//                GREEN;
-//            case 4, 5, 6 ->
-//                YELLOW;
-//            default ->
-//                RED;
-//        };
-    }
-    
 }
