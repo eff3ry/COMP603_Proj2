@@ -210,6 +210,7 @@ public class App {
     public static void checkForExit(String str) {
         if (str.equalsIgnoreCase("x")) {
             //exit
+            System.exit(0);
         }
     }
 

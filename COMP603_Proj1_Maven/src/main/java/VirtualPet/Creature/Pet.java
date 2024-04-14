@@ -4,6 +4,8 @@
  */
 package VirtualPet.Creature;
 
+import java.util.Random;
+
 /**
  *
  * @author jeffe
@@ -32,16 +34,16 @@ public abstract class Pet {
     
         
     abstract public void feed();
-    abstract protected void eat();
+    //abstract protected void eat();
     
     abstract public void water();
-    abstract protected void drink();
+    //abstract protected void drink();
     
     public abstract void walk();
     public abstract void useToilet();
     public abstract void play();
     
-    public abstract void behaviour();
+    //public abstract void behaviour();
     
     public void updateSadness() {
         int highestNeed = Math.max(needs.getHunger(), Math.max(needs.getExercise(), needs.getBladder()));
@@ -49,12 +51,29 @@ public abstract class Pet {
             attributes.addSadness(10);
         }
     }
-    
+    public void updateStats() {
+        Random r = new Random();
+
+        int i = r.nextInt() % 3;
+
+        switch (i) {
+            case 0:
+                ;
+            case 1:
+                ;
+            case 2:
+                ;
+            default:
+                break;
+        }
+    }
     public boolean isHappy() {
         return attributes.getSadness() < 100;
     }
     
     public void displayStats() {
+        
+        
         System.out.println("Name: " + attributes.getName());
         System.out.println("Species: " + attributes.getSpecies());
         System.out.println("Needs ->");
