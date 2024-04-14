@@ -44,7 +44,7 @@ public abstract class Pet {
     public abstract void behaviour();
     
     public void updateSadness() {
-        int highestNeed = Math.max(needs.hunger, Math.max(needs.exercise, needs.bladder));
+        int highestNeed = Math.max(needs.getHunger(), Math.max(needs.getExercise(), needs.getBladder()));
         if (highestNeed == 100) {
             attributes.addSadness(10);
         }
@@ -58,10 +58,10 @@ public abstract class Pet {
         System.out.println("Name: " + attributes.getName());
         System.out.println("Species: " + attributes.getSpecies());
         System.out.println("Needs ->");
-        printPetMeter(needs.thirst, "Thirst", false);
-        printPetMeter(needs.hunger, "Hunger", false);
-        printPetMeter(needs.exercise, "Exercise", false);
-        printPetMeter(needs.bladder, "Bladder", false);
+        printPetMeter(needs.getThirst(), "Thirst", false);
+        printPetMeter(needs.getHunger(), "Hunger", false);
+        printPetMeter(needs.getExercise(), "Exercise", false);
+        printPetMeter(needs.getBladder(), "Bladder", false);
         printPetMeter(attributes.getSadness(), "Sadness", false);
         System.out.println("Resources ->");
         printPetMeter(resources.getFood(), "Food", true);

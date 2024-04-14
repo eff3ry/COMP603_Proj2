@@ -31,7 +31,7 @@ public class Cat extends Pet{
 
     @Override
     protected void eat() {
-        needs.hunger -= (10 + (10 - attributes.pickiness));
+        needs.setHunger(needs.getHunger() - (10 + (10 - attributes.pickiness)));
         resources.addFood((-10 - (10 - attributes.pickiness)));
     }
 
@@ -42,7 +42,7 @@ public class Cat extends Pet{
 
     @Override
     protected void drink() {
-        needs.thirst -= 10;
+        needs.setThirst(needs.getThirst() - 10);
         resources.addWater(-10);
     }
 
@@ -54,10 +54,10 @@ public class Cat extends Pet{
 
     @Override
     public void useToilet() {
-        if(needs.bladder >= 10) {
-            needs.bladder -= 10;
+        if(needs.getBladder() >= 10) {
+            needs.setBladder(needs.getBladder() - 10);
         }
-        if (needs.bladder > 0 && needs.bladder < 10) {
+        if (needs.getBladder() > 0 && needs.getBladder() < 10) {
             
         }
         else {
@@ -68,7 +68,7 @@ public class Cat extends Pet{
 
     @Override
     public void play() {
-        if(needs.exercise == 0) {
+        if(needs.getExercise() == 0) {
             System.out.println(attributes.getName()+" does not want to play!");
         }
         else {
@@ -83,26 +83,26 @@ public class Cat extends Pet{
                 resources.addWater(10);
             }
 
-            needs.exercise -= (10 + (10 - attributes.laziness));
-            if (needs.exercise < 0) {
-                needs.exercise = 0;
+            needs.setExercise(needs.getExercise() - (10 + (10 - attributes.laziness)));
+            if (needs.getExercise() < 0) {
+                needs.setExercise(0);
             }
         }
     }
 
     @Override
     public void behaviour() {
-        int mostUrgentNeed = Math.max(needs.hunger, Math.max(needs.thirst, needs.bladder));
+        int mostUrgentNeed = Math.max(needs.getHunger(), Math.max(needs.getThirst(), needs.getBladder()));
         
-        if (mostUrgentNeed == needs.hunger)
+        if (mostUrgentNeed == needs.getHunger())
         {
             eat();
             System.out.println(attributes.getName() + " was hungry and ate.");
-        } else if (mostUrgentNeed == needs.thirst)
+        } else if (mostUrgentNeed == needs.getThirst())
         {
             drink();
             System.out.println(attributes.getName() + " was thirsty and drank.");
-        } else if (mostUrgentNeed == needs.bladder)
+        } else if (mostUrgentNeed == needs.getBladder())
         {
             System.out.println(attributes.getName() + " really needs to pee and can't do anything until you take them to the litterbox");
         }

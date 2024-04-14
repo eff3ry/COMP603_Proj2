@@ -26,7 +26,7 @@ public class Dog extends Pet{
 
     @Override
     protected void eat() {
-        needs.hunger -= 10;
+        needs.setHunger(needs.getHunger() - 10);
     }
 
     @Override
