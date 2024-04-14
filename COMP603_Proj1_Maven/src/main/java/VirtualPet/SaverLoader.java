@@ -140,16 +140,16 @@ public class SaverLoader {
         {
             for (File file : files) {
                 if (file.getName().equals("attributes.json")) {
-                    System.out.println("Found attributes.json in directory: " + directory.getName());
-                    //attributes = loadJsonFile(file.toString(), Attributes.class);
+                    //System.out.println("Found attributes.json in directory: " + directory.getName());
+                    
                     dirHasFiles += 1;
                 } else if (file.getName().equals("resources.json")) {
-                    System.out.println("Found resources.json in directory: " + directory.getName());
-                    //resources = loadJsonFile(file.toString(), Resources.class);
+                    //System.out.println("Found resources.json in directory: " + directory.getName());
+                    
                     dirHasFiles += 2;
                 } else if (file.getName().equals("needs.json")) {
-                    System.out.println("Found needs.json in directory: " + directory.getName());
-                    //needs = loadJsonFile(file.toString(), Needs.class);
+                    //System.out.println("Found needs.json in directory: " + directory.getName());
+                    
                     dirHasFiles += 3;
                 }
                 if(dirHasFiles == 6)
@@ -197,7 +197,7 @@ public class SaverLoader {
             String line = null;
             while ((line=inStream.readLine())!=null){
                 jsonData += line;
-                System.out.println(line);
+                //System.out.println(line);
             }
             inStream.close();
             
