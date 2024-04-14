@@ -24,18 +24,18 @@ public class Cat extends Pet{
     
     @Override
     public void feed() {
-        if(resources.food == 0) {
+        if(resources.getFood() == 0) {
             System.out.println("You have no food! Try playing with your pet to earn food!");
         }
-        if(needs.hunger == 0) {
+        if(needs.getHunger() == 0) {
             System.out.println(attributes.getName() + " is not hungry!");
         }
         else {
             System.out.println(attributes.getName() + " ate food! -10 hunger, -10 food");
-            needs.hunger -= (10 + (10 - attributes.pickiness));
+            needs.modifyHunger( - (10 + (10 - attributes.pickiness)));
             resources.addFood((-10 - (10 - attributes.pickiness)));
-            if (needs.hunger < 0) {
-                needs.hunger = 0;
+            if (needs.getHunger() < 0) {
+                needs.setHunger(0);
             }
         }
 
@@ -50,19 +50,19 @@ public class Cat extends Pet{
 
     @Override
     public void water() {
-        if(resources.water == 0) {
+        if(resources.getWater() == 0) {
             System.out.println("You have no water! Try playing with your pet to earn water!");
         }
-        if(needs.thirst == 0) {
+        if(needs.getThirst() == 0) {
             System.out.println(attributes.getName() + " is not thirsty!");
         }
         else {
             System.out.println(attributes.getName() + " drank water! -10 thirst, -10 water");
-            needs.thirst -= 10;
+            needs.modifyThirst(-10);
             resources.addWater(-10);
-            needs.bladder += 10;
-            if (needs.thirst < 0) {
-                needs.thirst = 0;
+            needs.modifyBladder(10);
+            if (needs.getThirst() < 0) {
+                needs.setThirst(0);
             }
         }
 
@@ -82,9 +82,9 @@ public class Cat extends Pet{
     @Override
     public void useToilet() {
         
-        if(needs.bladder > 0) {
+        if(needs.getBladder() > 0) {
             System.out.println(attributes.getName() + " went to the toilet!");
-            needs.bladder = 0;
+            needs.setBladder(0);
         }
         
         else {
@@ -110,9 +110,9 @@ public class Cat extends Pet{
                 resources.addWater(10);
             }
 
-            needs.exercise -= (10 + (10 - attributes.likesBeingPetted));
-            if (needs.exercise < 0) {
-                needs.exercise = 0;
+            needs.modifyExercise(-(10 + (10 - attributes.likesBeingPetted)));
+            if (needs.getExercise() < 0) {
+                needs.setExercise(0);
             }
         }
     }
