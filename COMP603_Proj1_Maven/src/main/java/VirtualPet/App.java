@@ -76,12 +76,42 @@ public class App {
         String[] keys = new String[0];
         keys = petMap.keySet().toArray(keys);
         
-        for (int i = 0; i < keys.length; i++)
-        {
+        choosePetToLoad(petMap, keys);
+    }
+    
+    static void choosePetToLoad(HashMap<String, Pet> petMap, String[] keys) {
+        System.out.println("Please choose a pet to load.\nType 'x' to exit.");
+
+        for (int i = 0; i < keys.length; i++) {
             String name = petMap.get(keys[i]).attributes.getName();
             System.out.println(i + ". " + name);
         }
-        
+
+        Scanner sc = new Scanner(System.in);
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("x")) {
+            System.exit(0);
+        }
+
+        if (!isInt(choice)) {
+            System.out.println("Sorry that is not a valid choice.\nPlease input onee of the numbers below or type 'x'");
+            choosePetToLoad(petMap, keys);
+            return;
+        } else {
+            int i = Integer.parseInt(choice);
+            if (i < keys.length) {
+
+                //choose pet
+                pet = petMap.get(keys[i]);
+                System.out.println("You have chosen " + pet.attributes.getName());
+                
+                
+            } else {
+                System.out.println("Sorry that is not a valid choice.\nPlease input onee of the numbers below or type 'x'");
+                choosePetToLoad(petMap, keys);
+                return;
+            }
+        }
     }
     
     private static boolean isInt(String str)
