@@ -187,7 +187,7 @@ public class App {
 
             case "x":
                 System.out.println("Bye bye!");
-                //SaverLoader.save(pet);
+                SaverLoader.save(pet);
                 System.exit(0);
                 break;
 
