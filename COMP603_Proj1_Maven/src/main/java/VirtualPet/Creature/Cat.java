@@ -4,6 +4,8 @@
  */
 package VirtualPet.Creature;
 
+import java.util.Random;
+
 
 /**
  *
@@ -32,10 +34,13 @@ public class Cat extends Pet{
         }
         else {
             System.out.println(attributes.getName() + " ate food! -10 hunger, -10 food");
-            needs.modifyHunger( - (10 + (10 - attributes.pickiness)));
-            resources.addFood((-10 - (10 - attributes.pickiness)));
+            needs.modifyHunger(-10);
+            resources.addFood(-10);
             if (needs.getHunger() < 0) {
                 needs.setHunger(0);
+            }
+            if (resources.getFood() < 0) {
+                resources.setFood(0);
             }
         }
 
@@ -63,6 +68,9 @@ public class Cat extends Pet{
             needs.modifyBladder(10);
             if (needs.getThirst() < 0) {
                 needs.setThirst(0);
+            }
+            if (resources.getWater() < 0) {
+                resources.setWater(0);
             }
         }
 
@@ -100,17 +108,20 @@ public class Cat extends Pet{
         }
         else {
             System.out.println("You played with " + attributes.getName());
-            int rand1 = (int) (Math.random() * 10);
-            if (rand1 == 0) {
+            Random r = new Random();
+
+            int i = r.nextInt(5);
+            if (i == 0 && needs.getHunger() <=90) {
                 System.out.println(attributes.getName() + " found 10 food!");
+                
                 resources.addFood(10);
             }
-            if (rand1 == 1) {
+            if (i == 1 && needs.getThirst() <=90) {
                 System.out.println(attributes.getName() + " found 10 water!");
                 resources.addWater(10);
             }
 
-            needs.modifyExercise(-(10 + (10 - attributes.likesBeingPetted)));
+            needs.modifyExercise(-10);
             if (needs.getExercise() < 0) {
                 needs.setExercise(0);
             }

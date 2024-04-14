@@ -149,6 +149,7 @@ public class App {
     }
 
     public static void chooseAction() {
+        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select an action (x to exit):");
         System.out.println("1. Feed " + pet.attributes.getName());
@@ -156,6 +157,7 @@ public class App {
         System.out.println("3. Take " + pet.attributes.getName() + " on a walk");
         System.out.println("4. Take " + pet.attributes.getName() + " to the toilet");
         System.out.println("5. Play with " + pet.attributes.getName());
+        
         String choice = scanner.nextLine();
 
         switch (choice) {

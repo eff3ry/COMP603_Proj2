@@ -54,17 +54,18 @@ public abstract class Pet {
     public void updateStats() {
         Random r = new Random();
 
-        int i = r.nextInt() % 3;
-
-        switch (i) {
-            case 0:
-                ;
-            case 1:
-                ;
-            case 2:
-                ;
-            default:
-                break;
+        int i = r.nextInt(3);
+        if (i == 0) {
+            needs.modifyHunger(10);
+            System.out.println("Hunger increased by 10");
+        }
+        if(i == 1) {
+            needs.modifyThirst(10);
+            System.out.println("Thirst increased by 10");
+        }
+        if(i == 2) {
+            needs.modifyExercise(10);
+            System.out.println("Exercise increased by 10");
         }
     }
     public boolean isHappy() {
@@ -72,8 +73,12 @@ public abstract class Pet {
     }
     
     public void displayStats() {
-        
-        
+        if(isHappy() == false) {
+            System.out.println(attributes.getName() +" ran away because it was too sad! Be a better owner next time!");
+            System.exit(1);
+        }
+        updateSadness();
+        updateStats();
         System.out.println("Name: " + attributes.getName());
         System.out.println("Species: " + attributes.getSpecies());
         System.out.println("Needs ->");

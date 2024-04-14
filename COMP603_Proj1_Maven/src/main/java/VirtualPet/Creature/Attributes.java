@@ -13,15 +13,9 @@ public class Attributes {
     private String species;
    
     private int sadness;
-    public int laziness;
-    public int pickiness;
-    public int likesBeingPetted;
     
     public Attributes(String name, String species)
     {
-        laziness = (int) (Math.random() * 10) + 1;
-        pickiness = (int) (Math.random() * 10) + 1;
-        likesBeingPetted = (int) (Math.random() * 10) + 1;
         
         sadness = 50;
         
@@ -40,19 +34,7 @@ public class Attributes {
     public int getSadness() {
         return sadness;
     }
-
-    public int getLaziness() {
-        return laziness;
-    }
-
-    public int getPickiness() {
-        return pickiness;
-    }
-
-    public int getLikesBeingPetted() {
-        return likesBeingPetted;
-    }
-
+    
     public void setSadness(int sadness) {
         this.sadness = sadness;
     }
