@@ -79,7 +79,7 @@ public class App {
         }
 
         if (!isInt(choice)) {
-            System.out.println("Sorry that is not a valid choice.\nPlease input onee of the numbers below or type 'x'");
+            System.out.println("Sorry that is not a valid choice.\nPlease input one of the numbers below or type 'x'");
             choosePetToLoad(petMap, keys);
             return;
         } else {
@@ -91,7 +91,7 @@ public class App {
                 System.out.println("You have chosen " + pet.attributes.getName());
 
             } else {
-                System.out.println("Sorry that is not a valid choice.\nPlease input onee of the numbers below or type 'x'");
+                System.out.println("Sorry that is not a valid choice.\nPlease input one of the numbers below or type 'x'");
                 choosePetToLoad(petMap, keys);
                 return;
             }
@@ -165,6 +165,11 @@ public class App {
                 pet.feed();
                 System.out.println("Press enter to continue...");
                 scanner.nextLine();
+                
+                pet.increaseRandomStat();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
+                
                 pet.displayStats();
                 chooseAction();
                 break;
@@ -172,6 +177,11 @@ public class App {
                 pet.water();
                 System.out.println("Press enter to continue...");
                 scanner.nextLine();
+                
+                pet.increaseRandomStat();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
+                
                 pet.displayStats();
                 chooseAction();
                 break;
@@ -179,6 +189,11 @@ public class App {
                 pet.walk();
                 System.out.println("Press enter to continue...");
                 scanner.nextLine();
+                
+                pet.increaseRandomStat();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
+                
                 pet.displayStats();
                 chooseAction();
                 break;
@@ -186,6 +201,11 @@ public class App {
                 pet.useToilet();
                 System.out.println("Press enter to continue...");
                 scanner.nextLine();
+                
+                pet.increaseRandomStat();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
+                
                 pet.displayStats();
                 chooseAction();
                 break;
@@ -193,6 +213,11 @@ public class App {
                 pet.play();
                 System.out.println("Press enter to continue...");
                 scanner.nextLine();
+                
+                pet.increaseRandomStat();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
+                
                 pet.displayStats();
                 chooseAction();
                 break;

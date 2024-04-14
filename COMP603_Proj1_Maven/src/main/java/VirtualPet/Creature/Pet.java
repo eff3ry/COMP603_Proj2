@@ -16,7 +16,7 @@ public abstract class Pet {
     public Resources resources;
     public Needs needs;
     
-    public String saveLoadID; //folder name??
+    public String saveLoadID; //folder name
     
     public Pet(String name, String species){
         attributes = new Attributes(name, species);
@@ -48,7 +48,8 @@ public abstract class Pet {
             attributes.addSadness(10);
         }
     }
-    public void updateStats() {
+    
+    public void increaseRandomStat() {
         Random r = new Random();
 
         int i = r.nextInt(3);
@@ -75,7 +76,7 @@ public abstract class Pet {
             System.exit(1);
         }
         updateSadness();
-        updateStats();
+        
         System.out.println("Name: " + attributes.getName());
         System.out.println("Species: " + attributes.getSpecies());
         System.out.println("Needs ->");

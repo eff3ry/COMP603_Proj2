@@ -75,8 +75,7 @@ public class Cat extends Pet{
 
     @Override
     public void walk() {
-        System.out.println(attributes.getName() + " doesnt like going on walks..\nExercise unchanged.");
-        
+        System.out.println(attributes.getName() + " doesnt like going on walks..\nExercise unchanged.");     
     }
 
     @Override
@@ -99,7 +98,7 @@ public class Cat extends Pet{
             System.out.println(attributes.getName()+" does not want to play!");
         }
         else {
-            System.out.println("You played with " + attributes.getName());
+            System.out.println("You played with " + attributes.getName() + " exersise went down by 10");
             Random r = new Random();
 
             int i = r.nextInt(5);
