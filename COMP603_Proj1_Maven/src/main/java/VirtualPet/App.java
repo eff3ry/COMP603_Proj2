@@ -4,6 +4,7 @@ import java.util.Scanner;
 import VirtualPet.Creature.*;
 import java.util.HashMap;
 import java.util.Set;
+
 /**
  *
  * @author Jeffery & Josh
@@ -11,57 +12,42 @@ import java.util.Set;
 public class App {
 
     static Pet pet;
-    
+
     public static void main(String[] args) {
-        
+
         printIntoAscii();
-        
+
         loadOrNew();
-        
-        //pet.displayStats();
-        //chooseAction();
-        
-        //Pet pet1 = new Cat(new Attributes("skibidi", "alpha"), new Resources(), new Needs());
-        //SaverLoader.save(pet1);
-        
-//        HashMap<String,Pet> petMap = SaverLoader.loadAll();
-//        for (String key : petMap.keySet())
-//        {
-//            petMap.get(key).displayStats();
-//        }
-        
+
+        pet.displayStats();
+        chooseAction();
     }
-    
-    static void loadOrNew()
-    {
+
+    static void loadOrNew() {
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("Would you like to load a pet or create a new one?\n1. Load\n2. Create new pet\nType 'x' to exit.");
-        
+
         String choice = sc.nextLine();
-        if (choice.equalsIgnoreCase("x"))
-        {
+        if (choice.equalsIgnoreCase("x")) {
             System.exit(0);
-        } 
-        
-        if (!isInt(choice))
-        {
+        }
+
+        if (!isInt(choice)) {
             System.out.println("Sorry that is not a valid choice.\nPlease input '1', '2' or 'x'");
             loadOrNew();
             return;
-        } else
-        {
+        } else {
             int i = Integer.parseInt(choice);
-            switch(i)
-            {
+            switch (i) {
                 case 1:
                     choosePetToLoad();
                     break;
-                
+
                 case 2:
                     choosePetToCreate();
                     break;
-                    
+
                 default:
                     System.out.println("Sorry that is not a valid choice.\nPlease input '1', '2' or 'x'");
                     loadOrNew();
@@ -69,16 +55,15 @@ public class App {
             }
         }
     }
-    
-    static void choosePetToLoad()
-    {
+
+    static void choosePetToLoad() {
         HashMap<String, Pet> petMap = SaverLoader.loadAll();
         String[] keys = new String[0];
         keys = petMap.keySet().toArray(keys);
-        
+
         choosePetToLoad(petMap, keys);
     }
-    
+
     static void choosePetToLoad(HashMap<String, Pet> petMap, String[] keys) {
         System.out.println("Please choose a pet to load.\nType 'x' to exit.");
 
@@ -104,8 +89,7 @@ public class App {
                 //choose pet
                 pet = petMap.get(keys[i]);
                 System.out.println("You have chosen " + pet.attributes.getName());
-                
-                
+
             } else {
                 System.out.println("Sorry that is not a valid choice.\nPlease input onee of the numbers below or type 'x'");
                 choosePetToLoad(petMap, keys);
@@ -113,27 +97,25 @@ public class App {
             }
         }
     }
-    
-    private static boolean isInt(String str)
-    {
+
+    private static boolean isInt(String str) {
         int num;
         try {
             num = Integer.parseInt(str);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
         return true;
     }
-    
-    public static void printIntoAscii()
-    {
-        System.out.println(" _    ___      __              __   ____       __ \n" +
-        "| |  / (_)____/ /___  ______ _/ /  / __ \\___  / /_\n" +
-        "| | / / / ___/ __/ / / / __ `/ /  / /_/ / _ \\/ __/\n" +
-        "| |/ / / /  / /_/ /_/ / /_/ / /  / ____/  __/ /_  \n" +
-        "|___/_/_/   \\__/\\__,_/\\__,_/_/  /_/    \\___/\\__/  \n" +
-        "                                                  \n" +
-        "");
+
+    public static void printIntoAscii() {
+        System.out.println(" _    ___      __              __   ____       __ \n"
+                + "| |  / (_)____/ /___  ______ _/ /  / __ \\___  / /_\n"
+                + "| | / / / ___/ __/ / / / __ `/ /  / /_/ / _ \\/ __/\n"
+                + "| |/ / / /  / /_/ /_/ / /_/ / /  / ____/  __/ /_  \n"
+                + "|___/_/_/   \\__/\\__,_/\\__,_/_/  /_/    \\___/\\__/  \n"
+                + "                                                  \n"
+                + "");
     }
 
     public static void choosePetToCreate() {
@@ -145,7 +127,6 @@ public class App {
         System.out.println("4. Rabbit");
         String choice = scanner.nextLine();
 
-        
         switch (choice) {
             case "1":
                 pet = new Dog(getName());
@@ -159,24 +140,22 @@ public class App {
             case "4":
                 pet = new Rabbit(getName());
                 break;
-            
-                
+
             default:
                 System.out.println("please enter a valid choice");
                 choosePetToCreate();
                 return;
         }
     }
-    
-    
+
     public static void chooseAction() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select an action (x to exit):");
         System.out.println("1. Feed " + pet.attributes.getName());
         System.out.println("2. Give water to " + pet.attributes.getName());
-        System.out.println("3. Take " + pet.attributes.getName() +" on a walk");
-        System.out.println("4. Take "+pet.attributes.getName()+" to the toilet");
-        System.out.println("5. Play with "+pet.attributes.getName());
+        System.out.println("3. Take " + pet.attributes.getName() + " on a walk");
+        System.out.println("4. Take " + pet.attributes.getName() + " to the toilet");
+        System.out.println("5. Play with " + pet.attributes.getName());
         String choice = scanner.nextLine();
 
         switch (choice) {
@@ -205,28 +184,25 @@ public class App {
                 pet.displayStats();
                 chooseAction();
                 break;
-                
-                
+
             case "x":
                 System.out.println("Bye bye!");
                 //SaverLoader.save(pet);
                 System.exit(0);
                 break;
-            
+
             default:
                 System.out.println("please enter a valid choice");
                 chooseAction();
         }
     }
-    
+
     public static void checkForExit(String str) {
-        if (str.equalsIgnoreCase("x"))
-        {
+        if (str.equalsIgnoreCase("x")) {
             //exit
         }
     }
-    
-    
+
     public static String getName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter pet name: ");
