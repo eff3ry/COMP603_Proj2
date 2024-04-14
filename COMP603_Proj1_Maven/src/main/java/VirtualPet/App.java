@@ -161,26 +161,36 @@ public class App {
         switch (choice) {
             case "1":
                 pet.feed();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
                 pet.displayStats();
                 chooseAction();
                 break;
             case "2":
                 pet.water();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
                 pet.displayStats();
                 chooseAction();
                 break;
             case "3":
                 pet.walk();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
                 pet.displayStats();
                 chooseAction();
                 break;
             case "4":
                 pet.useToilet();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
                 pet.displayStats();
                 chooseAction();
                 break;
             case "5":
                 pet.play();
+                System.out.println("Press enter to continue...");
+                scanner.nextLine();
                 pet.displayStats();
                 chooseAction();
                 break;
