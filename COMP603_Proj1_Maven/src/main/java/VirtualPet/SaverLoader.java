@@ -38,7 +38,7 @@ public class SaverLoader {
             }
             Path path = Paths.get("./resources/pets/"+pet.saveLoadID);
             Files.createDirectories(path);
-            saveJsonFile(path.toString()+"/", pet.attributes);
+            saveJsonFile(path.toString()+"/attributes.json", pet.attributes);
             saveJsonFile(path.toString()+"/resources.json", pet.resources);
             saveJsonFile(path.toString()+"/needs.json", pet.needs);
             
@@ -187,11 +187,13 @@ public class SaverLoader {
         
     private static <T> T loadJsonFile(String path, Class<T> clazz)
     {
+        String jsonData = "";
+        
         try {
             FileReader fileReader = new FileReader(path);
             BufferedReader inStream = new BufferedReader(fileReader);
             
-            String jsonData = "";
+            
             String line = null;
             while ((line=inStream.readLine())!=null){
                 jsonData += line;
@@ -210,7 +212,7 @@ public class SaverLoader {
         
         Gson gson = new Gson();
         try {
-            return gson.fromJson(path, clazz);
+            return gson.fromJson(jsonData, clazz);
         } catch (Exception e) {
             System.out.println("Error occured loading json into class");
             return null;
