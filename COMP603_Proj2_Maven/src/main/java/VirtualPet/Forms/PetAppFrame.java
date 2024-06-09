@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package VirtualPet;
+package VirtualPet.Forms;
 
+import VirtualPet.PetThread;
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
 import java.awt.image.BufferedImage;
@@ -57,7 +58,6 @@ public class PetAppFrame extends javax.swing.JFrame {
         setTitle("Virtual Pet");
         setBounds(new java.awt.Rectangle(0, 0, 450, 450));
         setMinimumSize(new java.awt.Dimension(450, 450));
-        setPreferredSize(new java.awt.Dimension(450, 450));
         setSize(new java.awt.Dimension(450, 450));
 
         feedButton.setText("Feed");
