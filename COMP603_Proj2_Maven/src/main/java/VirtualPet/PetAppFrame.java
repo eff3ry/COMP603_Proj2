@@ -50,8 +50,8 @@ public class PetAppFrame extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar3 = new javax.swing.JProgressBar();
         jProgressBar5 = new javax.swing.JProgressBar();
-        petPanel = new javax.swing.JPanel();
         jProgressBar4 = new javax.swing.JProgressBar();
+        petPanel1 = new VirtualPet.PetPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Virtual Pet");
@@ -86,19 +86,19 @@ public class PetAppFrame extends javax.swing.JFrame {
         jProgressBar5.setOrientation(1);
         jProgressBar5.setValue(50);
 
-        javax.swing.GroupLayout petPanelLayout = new javax.swing.GroupLayout(petPanel);
-        petPanel.setLayout(petPanelLayout);
-        petPanelLayout.setHorizontalGroup(
-            petPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
-        );
-        petPanelLayout.setVerticalGroup(
-            petPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
         jProgressBar4.setOrientation(1);
         jProgressBar4.setValue(50);
+
+        javax.swing.GroupLayout petPanel1Layout = new javax.swing.GroupLayout(petPanel1);
+        petPanel1.setLayout(petPanel1Layout);
+        petPanel1Layout.setHorizontalGroup(
+            petPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        petPanel1Layout.setVerticalGroup(
+            petPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,7 +122,7 @@ public class PetAppFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(petPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(petPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,11 +134,11 @@ public class PetAppFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(petPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jProgressBar5, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                     .addComponent(jProgressBar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(jProgressBar4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addComponent(jProgressBar4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addComponent(petPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -192,8 +192,12 @@ public class PetAppFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PetAppFrame().setVisible(true);
+                PetThread thread = new PetThread(petPanel1);
+                thread.start();
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -202,7 +206,7 @@ public class PetAppFrame extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar3;
     private javax.swing.JProgressBar jProgressBar4;
     private javax.swing.JProgressBar jProgressBar5;
-    private javax.swing.JPanel petPanel;
+    private static VirtualPet.PetPanel petPanel1;
     private javax.swing.JButton playButton;
     private javax.swing.JButton toiletButton;
     private javax.swing.JButton walkButton;
