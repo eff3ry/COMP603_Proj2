@@ -58,6 +58,9 @@ public class StartFrame extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
+        CreateForm createForm = new CreateForm();
+        createForm.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed

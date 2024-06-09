@@ -4,6 +4,13 @@
  */
 package VirtualPet.Forms;
 
+import java.io.File;
+import java.awt.Image;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.text.Document;
+import javax.swing.text.PlainDocument;
+
 /**
  *
  * @author jeffe
@@ -15,6 +22,8 @@ public class CreateForm extends javax.swing.JFrame {
      */
     public CreateForm() {
         initComponents();
+        
+        
     }
 
     /**
@@ -31,19 +40,15 @@ public class CreateForm extends javax.swing.JFrame {
         speciesLabel = new javax.swing.JLabel();
         speciesSelector = new javax.swing.JComboBox<>();
         createButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        imagePanel1 = new VirtualPet.Forms.ImagePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(380, 200));
+        setTitle("Virtual Pet - Create Pet");
+        setMinimumSize(new java.awt.Dimension(590, 310));
+        setPreferredSize(new java.awt.Dimension(590, 310));
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText("Name:");
-
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
 
         speciesLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         speciesLabel.setText("Species:");
@@ -51,8 +56,26 @@ public class CreateForm extends javax.swing.JFrame {
         speciesSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dog", "Cat", "Hamster", "Rabbit" }));
 
         createButton.setText("Create");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("somethign");
+        imagePanel1.setImage("./resources/pawprint.png");
+        imagePanel1.setMaximumSize(new java.awt.Dimension(100, 100));
+        imagePanel1.setPreferredSize(new java.awt.Dimension(100, 100));
+
+        javax.swing.GroupLayout imagePanel1Layout = new javax.swing.GroupLayout(imagePanel1);
+        imagePanel1.setLayout(imagePanel1Layout);
+        imagePanel1Layout.setHorizontalGroup(
+            imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 298, Short.MAX_VALUE)
+        );
+        imagePanel1Layout.setVerticalGroup(
+            imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 313, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,49 +83,50 @@ public class CreateForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(createButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(speciesLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameLabel)
-                                .addGap(4, 4, 4)))
+                            .addComponent(nameLabel)
+                            .addComponent(speciesLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameField)
-                            .addComponent(speciesSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(speciesSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(createButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(116, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(speciesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(speciesLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(createButton)
                 .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameFieldActionPerformed
+        if (nameField.getText().length() > 20)
+        {
+            //errorText.setText("Name is too long,\n must be 20 characters or less.");
+        }
+    }//GEN-LAST:event_createButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +165,7 @@ public class CreateForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createButton;
-    private javax.swing.JLabel jLabel1;
+    private VirtualPet.Forms.ImagePanel imagePanel1;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel speciesLabel;
