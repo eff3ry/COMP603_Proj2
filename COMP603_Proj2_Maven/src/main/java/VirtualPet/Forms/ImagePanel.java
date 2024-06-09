@@ -124,12 +124,12 @@ public class ImagePanel extends JPanel implements ComponentListener{
 
     @Override
     public void componentShown(ComponentEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        repaint();
     }
 
     @Override
     public void componentHidden(ComponentEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return;
     }
     
 }
