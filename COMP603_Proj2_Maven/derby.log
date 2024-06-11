@@ -1,12 +1,12 @@
 ----------------------------------------------------------------
-Tue Jun 11 22:59:32 NZST 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0190-06f3-fe52-00000ee06ad8 
-on database directory C:\Users\jeffe\Documents\Github\COMP603_Proj2\COMP603_Proj2_Maven\PetDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
-Loaded from file:/C:/Users/jeffe/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+Tue Jun 11 23:09:31 NZST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0190-06fd-24ab-00000e8384a8 
+on database directory C:\Users\joshu\Documents\GitHub\COMP603_Proj2\COMP603_Proj2_Maven\PetDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
+Loaded from file:/C:/Users/joshu/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=11.0.21+9-LTS-193
-user.dir=C:\Users\jeffe\Documents\Github\COMP603_Proj2\COMP603_Proj2_Maven
-os.name=Windows 11
+java.runtime.version=21.0.2+13-LTS-58
+user.dir=C:\Users\joshu\Documents\GitHub\COMP603_Proj2\COMP603_Proj2_Maven
+os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null

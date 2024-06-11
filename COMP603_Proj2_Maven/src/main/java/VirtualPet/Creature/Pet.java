@@ -62,8 +62,8 @@ public abstract class Pet {
             return ("Thirst increased by 10");
         }
         if(i == 2) {
-            needs.modifyExercise(10);
-            return ("Exercise increased by 10");
+            needs.modifyExercise(20);
+            return ("Exercise increased by 20");
         }
         return "";
     }
