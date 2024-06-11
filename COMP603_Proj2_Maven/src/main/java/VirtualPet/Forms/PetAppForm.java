@@ -413,7 +413,7 @@ public class PetAppForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel messageLabel;
+    public javax.swing.JLabel messageLabel;
     private javax.swing.JLabel nameValueLabel;
     private static VirtualPet.PetPanel petPanel1;
     private javax.swing.JButton playButton;

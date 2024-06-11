@@ -40,11 +40,11 @@ public class GUIApp {
         
     public static void statTick()
     {
-        loadedPet.increaseRandomStat();
-        loadedPet.updateSadness();
         if (currentFrame instanceof PetAppForm)
         {
             PetAppForm frame = (PetAppForm) currentFrame;
+            frame.messageLabel.setText(loadedPet.increaseRandomStat());
+            loadedPet.updateSadness();
             frame.updateValues();
         }
     }

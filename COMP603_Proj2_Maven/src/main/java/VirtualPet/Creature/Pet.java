@@ -49,23 +49,25 @@ public abstract class Pet {
         }
     }
     
-    public void increaseRandomStat() {
+    public String increaseRandomStat() {
         Random r = new Random();
 
         int i = r.nextInt(3);
         if (i == 0) {
             needs.modifyHunger(10);
-            System.out.println("Hunger increased by 10");
+            return ("Hunger increased by 10");
         }
         if(i == 1) {
             needs.modifyThirst(10);
-            System.out.println("Thirst increased by 10");
+            return ("Thirst increased by 10");
         }
         if(i == 2) {
             needs.modifyExercise(10);
-            System.out.println("Exercise increased by 10");
+            return ("Exercise increased by 10");
         }
+        return "";
     }
+    
     public boolean isHappy() {
         return attributes.getSadness() < 100;
     }
