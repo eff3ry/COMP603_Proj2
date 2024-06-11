@@ -25,7 +25,7 @@ public class PetManager {
     private void createPetTable() throws SQLException
     {
         Connection conn = dbManager.getConnection();
-        if (!dbManager.tableExists(conn, "pets"))
+        if (!dbManager.tableExists(conn, "PET"))
         {
             //create table
             Statement s = conn.createStatement();
