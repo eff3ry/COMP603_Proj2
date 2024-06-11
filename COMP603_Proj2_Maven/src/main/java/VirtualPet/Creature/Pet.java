@@ -33,13 +33,13 @@ public abstract class Pet {
     }
     
         
-    abstract public void feed();
+    abstract public String feed();
     
-    abstract public void water();
+    abstract public String water();
     
-    public abstract void walk();
-    public abstract void useToilet();
-    public abstract void play();
+    public abstract String walk();
+    public abstract String useToilet();
+    public abstract String play();
     
     
     public void updateSadness() {
