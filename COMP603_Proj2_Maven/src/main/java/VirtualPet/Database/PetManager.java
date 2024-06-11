@@ -123,6 +123,35 @@ public class PetManager {
 
         ps.close();
         //conn.close();
-  }
+    }
+    
+    public Pet queryPet(String queryName) throws SQLException {
+        Connection conn =dbManager.getConnection();
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM PET WHERE name = ?");
+        ps.setString(1, queryName);
+        
+        ResultSet resultSet = ps.executeQuery();
+        Pet petObject = null;
+        if (resultSet.next()) {
+            
+            
+            String name = resultSet.getString("name");
+            String species = resultSet.getString("species");
+            int sadness = resultSet.getInt("sadness");
+            int thirst = resultSet.getInt("thirst");
+            int hunger = resultSet.getInt("hunger");
+            int bladder = resultSet.getInt("bladder");
+            int exercise = resultSet.getInt("exercise");
+            int food = resultSet.getInt("food");
+            int water = resultSet.getInt("water");
+            // ... other attributes
+            
+            
+            
+            
+        }
+        
+    }
+    
 
 }
