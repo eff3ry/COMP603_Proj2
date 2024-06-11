@@ -11,7 +11,10 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import java.io.File;
 import java.awt.Image;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -28,7 +31,7 @@ public class PetAppForm extends javax.swing.JFrame {
         this.pet = pet;
         
         initComponents();
-        
+                
         try {
             File pathToFile = new File("./resources/pawprint.png");
             Image image = ImageIO.read(pathToFile);
@@ -36,6 +39,10 @@ public class PetAppForm extends javax.swing.JFrame {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        
+        PetThread petThread = new PetThread(petPanel1);
+        petThread.start();
+        
     }
 
     /**
@@ -101,6 +108,11 @@ public class PetAppForm extends javax.swing.JFrame {
         petPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout petPanel1Layout = new javax.swing.GroupLayout(petPanel1);
         petPanel1.setLayout(petPanel1Layout);
@@ -177,6 +189,10 @@ public class PetAppForm extends javax.swing.JFrame {
     private void toiletButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toiletButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toiletButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments

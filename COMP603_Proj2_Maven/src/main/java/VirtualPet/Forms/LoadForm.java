@@ -6,10 +6,14 @@ package VirtualPet.Forms;
 
 import VirtualPet.Creature.Pet;
 import static VirtualPet.Forms.GUIApp.petMap;
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JList;
 import javax.swing.ListModel;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -22,6 +26,7 @@ public class LoadForm extends javax.swing.JFrame {
      */
     public LoadForm() {
         initComponents();
+        
     }
 
     
@@ -73,6 +78,7 @@ public class LoadForm extends javax.swing.JFrame {
         waterLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Virtual Pet - Load");
         setMinimumSize(new java.awt.Dimension(500, 350));
         setPreferredSize(new java.awt.Dimension(500, 320));
 

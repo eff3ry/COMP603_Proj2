@@ -4,6 +4,8 @@
  */
 package VirtualPet.Forms;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+
 /**
  *
  * @author jeffe
@@ -15,6 +17,9 @@ public class StartFrame extends javax.swing.JFrame {
      */
     public StartFrame() {
         initComponents();
+        
+        
+        
     }
 
     /**

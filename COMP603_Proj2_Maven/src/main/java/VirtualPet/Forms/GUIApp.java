@@ -6,6 +6,7 @@ package VirtualPet.Forms;
 
 import VirtualPet.Creature.Pet;
 import VirtualPet.Database.PetManager;
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -37,15 +39,11 @@ public class GUIApp {
     static Pet loadedPet = null;
         
     public static void main(String[] args) {
+        FlatDarkLaf.setup();
         
         petManager = new PetManager();
         
-        startFrame = new StartFrame();
-        assignCloseListener(startFrame);
-        startFrame.setVisible(true);
-        
-        currentFrame = startFrame;
-        
+        openStartForm();   
     }
     
     public static void openCreateForm()
