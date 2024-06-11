@@ -55,16 +55,16 @@
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar7" min="-2" max="-2" attributes="0"/>
+                  <Component id="thirstBar" min="-2" max="-2" attributes="0"/>
+                  <Component id="hungerBar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="exerciseBar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="bladderBar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="sadnessBar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="foodBar" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameValueLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="speciesValueLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -72,7 +72,7 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                  <Component id="jProgressBar2" min="-2" max="-2" attributes="0"/>
+                  <Component id="waterBar" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -112,37 +112,37 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="speciesValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="39" max="32767" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jProgressBar1" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="thirstBar" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jProgressBar3" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="hungerBar" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jProgressBar4" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="exerciseBar" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jProgressBar5" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="bladderBar" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jProgressBar6" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="sadnessBar" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jProgressBar7" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="foodBar" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jProgressBar2" min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="waterBar" min="-2" pref="13" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -224,37 +224,37 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar1">
+    <Component class="javax.swing.JProgressBar" name="thirstBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar2">
+    <Component class="javax.swing.JProgressBar" name="waterBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar3">
+    <Component class="javax.swing.JProgressBar" name="hungerBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar4">
+    <Component class="javax.swing.JProgressBar" name="exerciseBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar5">
+    <Component class="javax.swing.JProgressBar" name="bladderBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar6">
+    <Component class="javax.swing.JProgressBar" name="sadnessBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar7">
+    <Component class="javax.swing.JProgressBar" name="foodBar">
       <Properties>
         <Property name="value" type="int" value="50"/>
       </Properties>
@@ -270,12 +270,12 @@
         <Property name="text" type="java.lang.String" value="Species"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="nameValueLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="..."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="speciesValueLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="..."/>
