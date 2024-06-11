@@ -99,5 +99,24 @@ public class PetManager {
         // Close the connection (important!)
         //conn.close();
     }
+    public void updatePet(Pet pet) throws SQLException {
+        Connection conn =dbManager.getConnection();
+        PreparedStatement ps = conn.prepareStatement("UPDATE PET SET species = ?, sadness = ?, thirst = ?, hunger = ?, bladder = ?, exercise = ?, food = ?, water = ? WHERE name = ?");
+
+        ps.setString(1, pet.attributes.getSpecies()); // Update values
+        ps.setInt(2, pet.attributes.getSadness());
+        ps.setInt(3, pet.needs.getThirst());
+        ps.setInt(4, pet.needs.getHunger());
+        ps.setInt(5, pet.needs.getBladder());
+        ps.setInt(6, pet.needs.getExercise());
+        ps.setInt(7, pet.resources.getFood());
+        ps.setInt(8, pet.resources.getWater());
+        ps.setString(9, pet.attributes.getName());  // Set where clause based on primary key
+
+        ps.executeUpdate();
+
+        ps.close();
+        //conn.close();
+  }
 
 }
