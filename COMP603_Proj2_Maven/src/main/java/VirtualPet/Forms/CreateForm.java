@@ -4,6 +4,11 @@
  */
 package VirtualPet.Forms;
 
+import VirtualPet.Creature.Cat;
+import VirtualPet.Creature.Dog;
+import VirtualPet.Creature.Hamster;
+import VirtualPet.Creature.Pet;
+import VirtualPet.Creature.Rabbit;
 import java.io.File;
 import java.awt.Image;
 import java.io.IOException;
@@ -50,11 +55,13 @@ public class CreateForm extends javax.swing.JFrame {
         speciesSelector = new javax.swing.JComboBox<>();
         createButton = new javax.swing.JButton();
         imagePanel1 = new VirtualPet.Forms.ImagePanel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Virtual Pet - Create Pet");
-        setMinimumSize(new java.awt.Dimension(590, 310));
-        setPreferredSize(new java.awt.Dimension(590, 310));
+        setMinimumSize(new java.awt.Dimension(590, 420));
+        setPreferredSize(new java.awt.Dimension(590, 420));
+        setSize(new java.awt.Dimension(590, 400));
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText("Name:");
@@ -82,23 +89,30 @@ public class CreateForm extends javax.swing.JFrame {
         imagePanel1.setLayout(imagePanel1Layout);
         imagePanel1Layout.setHorizontalGroup(
             imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 307, Short.MAX_VALUE)
+            .addGap(0, 288, Short.MAX_VALUE)
         );
         imagePanel1Layout.setVerticalGroup(
             imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nameLabel)
                             .addComponent(speciesLabel))
@@ -106,13 +120,16 @@ public class CreateForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameField)
                             .addComponent(speciesSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(createButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createButton)))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLabel))
@@ -120,13 +137,15 @@ public class CreateForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(speciesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(speciesLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                 .addComponent(createButton)
                 .addGap(25, 25, 25))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(25, 25, 25)
+                .addComponent(backButton)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -134,9 +153,26 @@ public class CreateForm extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        if (nameField.getText().length() > 20)
+        if (nameField.getText().length() < 254)
         {
-            //errorText.setText("Name is too long,\n must be 20 characters or less.");
+            Pet pet = null;
+            if (speciesSelector.getSelectedItem() == "Dog")
+            {
+                pet = new Dog(nameField.getText());
+            } else if (speciesSelector.getSelectedItem() == "Cat") {
+                pet = new Cat(nameField.getText());
+            } else if (speciesSelector.getSelectedItem() == "Hamster") {
+                pet = new Hamster(nameField.getText());
+            } else if (speciesSelector.getSelectedItem() == "Rabbit") {
+                pet = new Rabbit(nameField.getText());
+            }
+            
+            if (pet != null)
+            {
+                this.setVisible(false);
+                PetAppFrame appFrame = new PetAppFrame(pet);
+                appFrame.setVisible(true);
+            }
         }
     }//GEN-LAST:event_createButtonActionPerformed
 
@@ -156,6 +192,11 @@ public class CreateForm extends javax.swing.JFrame {
             imagePanel1.setImage("./resources/images/rabbitHappy.png");
         }  
     }//GEN-LAST:event_speciesSelectorActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        GUIApp.openStartForm();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +234,7 @@ public class CreateForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JButton createButton;
     private VirtualPet.Forms.ImagePanel imagePanel1;
     private javax.swing.JTextField nameField;

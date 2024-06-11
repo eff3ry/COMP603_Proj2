@@ -38,7 +38,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <exec.inheritIo>true</exec.inheritIo>
-        <exec.mainClass>VirtualPet.Forms.StartFrame</exec.mainClass>
+        <exec.mainClass>VirtualPet.Forms.GUIApp</exec.mainClass>
     </properties>
     <build>
     <plugins>
@@ -52,7 +52,7 @@
               <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>VirtualPet.Forms.StartFrame</mainClass>
+                <mainClass>VirtualPet.Forms.GUIApp</mainClass>
               </manifest>
             </archive>
           </configuration>

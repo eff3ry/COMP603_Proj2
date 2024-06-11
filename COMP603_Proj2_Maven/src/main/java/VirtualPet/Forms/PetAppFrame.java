@@ -4,10 +4,10 @@
  */
 package VirtualPet.Forms;
 
+import VirtualPet.Creature.Dog;
+import VirtualPet.Creature.Pet;
 import VirtualPet.PetThread;
 import com.formdev.flatlaf.FlatDarkLaf;
-import javax.swing.JFrame;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.awt.Image;
 import java.io.IOException;
@@ -22,7 +22,11 @@ public class PetAppFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public PetAppFrame() {
+    Pet pet;
+    
+    public PetAppFrame(Pet pet) {
+        this.pet = pet;
+        
         initComponents();
         
         try {
@@ -207,7 +211,7 @@ public class PetAppFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PetAppFrame().setVisible(true);
+                new PetAppFrame(new Dog("Test")).setVisible(true);
                 PetThread thread = new PetThread(petPanel1);
                 thread.start();
             }
