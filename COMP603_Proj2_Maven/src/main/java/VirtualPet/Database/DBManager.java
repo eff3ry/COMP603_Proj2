@@ -51,6 +51,7 @@ public final class DBManager {
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
+            System.out.println("Connections Closed.");
         }
     }
     

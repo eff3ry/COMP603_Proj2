@@ -37,6 +37,12 @@ public class PetManager {
         }
     }
     
+    public void closeDB()
+    {
+        System.out.println("Close db called...");
+        dbManager.closeConnections();
+    }
+    
     private void createPetTable() throws SQLException
     {
         Connection conn = dbManager.getConnection();
