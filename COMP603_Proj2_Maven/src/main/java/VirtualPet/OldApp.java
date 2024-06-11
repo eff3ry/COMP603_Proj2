@@ -9,7 +9,7 @@ import java.util.Set;
  *
  * @author Jeffery & Josh
  */
-public class App {
+public class OldApp {
 
     static Pet pet;
 
@@ -57,7 +57,7 @@ public class App {
     }
 
     static void choosePetToLoad() {
-        HashMap<String, Pet> petMap = SaverLoader.loadAll();
+        HashMap<String, Pet> petMap = OldSaverLoader.loadAll();
         String[] keys = new String[0];
         keys = petMap.keySet().toArray(keys);
 
@@ -224,7 +224,7 @@ public class App {
 
             case "x":
                 System.out.println("Bye bye!");
-                SaverLoader.save(pet);
+                OldSaverLoader.save(pet);
                 System.exit(0);
                 break;
 
