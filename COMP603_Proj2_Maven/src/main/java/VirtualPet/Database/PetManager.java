@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -185,6 +186,63 @@ public class PetManager {
         }
         return petObject;
     }
-    
+    public List<Pet> queryPetArrayList() throws SQLException {
+        Connection conn =dbManager.getConnection();
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM PET");
+        
+        
+        ResultSet resultSet = ps.executeQuery();
+        Pet petObject = null;
+        List<Pet> pets = new ArrayList<>();
+        while (resultSet.next()) {
+            
+            
+            String name = resultSet.getString("name");
+            String species = resultSet.getString("species");
+            int sadness = resultSet.getInt("sadness");
+            
+            Attributes attributes = new Attributes(name, species);
+            attributes.setSadness(sadness);
+                      
+            int thirst = resultSet.getInt("thirst");
+            int hunger = resultSet.getInt("hunger");
+            int bladder = resultSet.getInt("bladder");
+            int exercise = resultSet.getInt("exercise");
+            
+            Needs needs = new Needs();
+            needs.setBladder(bladder);
+            needs.setExercise(exercise);
+            needs.setHunger(hunger);
+            needs.setThirst(thirst);
+            
+            int food = resultSet.getInt("food");
+            int water = resultSet.getInt("water");
+            
+            Resources resources = new Resources();
+            resources.setFood(food);
+            resources.setWater(water);
+            
+            
+            switch (species)
+            {
+                case "Dog":
+                    petObject = new Dog(attributes, resources, needs);
+                    break;
+                case "Cat":
+                    petObject = new Cat(attributes, resources, needs);
+                    break;
+                case "Hamster":
+                    petObject = new Hamster(attributes, resources, needs);
+                    break;
+                case "Rabbit":
+                    petObject = new Rabbit(attributes, resources, needs);
+                    break;
+            }
+        
+            
+            pets.add(petObject);
+        }       
+        return pets;
+    }
 
 }
