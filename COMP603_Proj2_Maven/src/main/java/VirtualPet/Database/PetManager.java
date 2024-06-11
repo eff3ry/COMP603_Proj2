@@ -55,6 +55,23 @@ public class PetManager {
             
         }
     }
+    
+    public void insertPet() throws SQLException {
+        Connection conn = dbManager.getConnection();
+        Statement s = conn.createStatement();
+        
+        s.execute("INSERT INTO PET VALUES ("
+                + "Pet.Attributes.getName(),"
+                + "Pet.Attributes.getSpecies(),"
+                + "Pet.Attributes.getSadness(),"
+                + "Pet.Needs.getThirst(),"
+                + "Pet.Needs.getHunger(),"
+                + "Pet.Needs.getBladder(),"
+                + "Pet.Needs.getExcerise(),"
+                + "Pet.Resources.getFood(),"
+                + "Pet.Resources.getWater(),");
+        
+    }
    
     
 }
