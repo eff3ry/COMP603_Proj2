@@ -8,6 +8,8 @@ import java.io.File;
 import java.awt.Image;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
 
@@ -20,10 +22,17 @@ public class CreateForm extends javax.swing.JFrame {
     /**
      * Creates new form CreateForm
      */
+    
+    Image dogImage;
+    Image catImage;
+    Image hamsterImage;
+    Image rabbitImage;
+    
     public CreateForm() {
         initComponents();
         
-        
+        imagePanel1.setImage("./resources/images/dogHappy.png");
+
     }
 
     /**
@@ -54,6 +63,11 @@ public class CreateForm extends javax.swing.JFrame {
         speciesLabel.setText("Species:");
 
         speciesSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dog", "Cat", "Hamster", "Rabbit" }));
+        speciesSelector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                speciesSelectorActionPerformed(evt);
+            }
+        });
 
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
@@ -62,19 +76,17 @@ public class CreateForm extends javax.swing.JFrame {
             }
         });
 
-        imagePanel1.setImage("./resources/pawprint.png");
-        imagePanel1.setMaximumSize(new java.awt.Dimension(100, 100));
-        imagePanel1.setPreferredSize(new java.awt.Dimension(100, 100));
+        imagePanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout imagePanel1Layout = new javax.swing.GroupLayout(imagePanel1);
         imagePanel1.setLayout(imagePanel1Layout);
         imagePanel1Layout.setHorizontalGroup(
             imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 307, Short.MAX_VALUE)
         );
         imagePanel1Layout.setVerticalGroup(
             imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 313, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -83,7 +95,7 @@ public class CreateForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -100,7 +112,7 @@ public class CreateForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLabel))
@@ -108,12 +120,12 @@ public class CreateForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(speciesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(speciesLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(createButton)
                 .addGap(25, 25, 25))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addComponent(imagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -127,6 +139,23 @@ public class CreateForm extends javax.swing.JFrame {
             //errorText.setText("Name is too long,\n must be 20 characters or less.");
         }
     }//GEN-LAST:event_createButtonActionPerformed
+
+    private void speciesSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speciesSelectorActionPerformed
+        // TODO add your handling code here:
+        if (speciesSelector.getSelectedItem() == "Dog")
+        {
+            imagePanel1.setImage("./resources/images/dogHappy.png");
+        } else if (speciesSelector.getSelectedItem() == "Cat")
+        {
+            imagePanel1.setImage("./resources/images/catHappy.png");
+        }else if (speciesSelector.getSelectedItem() == "Hamster")
+        {
+            imagePanel1.setImage("./resources/images/hamsterHappy.png");
+        }else if (speciesSelector.getSelectedItem() == "Rabbit")
+        {
+            imagePanel1.setImage("./resources/images/rabbitHappy.png");
+        }  
+    }//GEN-LAST:event_speciesSelectorActionPerformed
 
     /**
      * @param args the command line arguments

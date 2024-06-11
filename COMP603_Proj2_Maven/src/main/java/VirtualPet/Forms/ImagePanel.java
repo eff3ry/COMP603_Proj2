@@ -19,19 +19,15 @@ import javax.imageio.ImageIO;
  */
 public class ImagePanel extends JPanel implements ComponentListener{
     
-    Image img;
-    int width;
-    int height;
+    Image img = null;
+    int width=0;
+    int height=0;
     
     int x;
     int y;
     
     FillType fillType;
 
-    
-
-    
-    
     public enum FillType{
         STRETCH,
         FIT
@@ -86,27 +82,27 @@ public class ImagePanel extends JPanel implements ComponentListener{
         super.paintComponent(g);
         
         //Custom paint code
-        if (fillType == FillType.STRETCH)
-        {
-            g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-        } else if (fillType == FillType.FIT)
-        {
-            //height = img.getHeight(this);
-            //width = img.getWidth(this);
-            if (this.getWidth() > this.getHeight())
-            {
-                height = this.getHeight();
-                width = Math.round(height * 1f/img.getHeight(this) * 1f * img.getWidth(this));
-                x = this.getWidth()/2 - width/2;
-                y = 0;
-            } else {
-                width = this.getWidth();
-                height = Math.round(width * 1f/img.getWidth(this) * 1f * img.getHeight(this));
-                x = 0;
-                y = this.getHeight()/2 - height/2;
+        if (img != null) {
+
+            if (fillType == FillType.STRETCH) {
+                g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+            } else if (fillType == FillType.FIT) {
+                //height = img.getHeight(this);
+                //width = img.getWidth(this);
+                if (this.getWidth() > this.getHeight()) {
+                    height = this.getHeight();
+                    width = Math.round(height * 1f / img.getHeight(this) * 1f * img.getWidth(this));
+                    x = this.getWidth() / 2 - width / 2;
+                    y = 0;
+                } else {
+                    width = this.getWidth();
+                    height = Math.round(width * 1f / img.getWidth(this) * 1f * img.getHeight(this));
+                    x = 0;
+                    y = this.getHeight() / 2 - height / 2;
+                }
+
+                g.drawImage(img, x, y, width, height, this);
             }
-            
-            g.drawImage(img, x, y, width, height, this);
         }
         
     }
