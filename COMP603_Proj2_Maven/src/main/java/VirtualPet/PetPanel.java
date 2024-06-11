@@ -17,6 +17,8 @@ public class PetPanel extends JPanel{
     int x;
     int y;
     
+    
+    
     public PetPanel()
     {
         x = this.getWidth()/2;
@@ -30,7 +32,12 @@ public class PetPanel extends JPanel{
         // Your custom painting code here
         
         // Example: g.drawString("Hello, Pet!", 10, 20);
-        g.setColor(Color.red);
-        g.fillOval(x, y, 10, 10);
+        
+        int size = 34;
+        g.setColor(new Color(60,63,65));
+        g.fillOval(x - size/2, y - size/2, size, size);
+        size = 30;
+        g.setColor(new Color(76,135,200));
+        g.fillOval(x - size/2, y - size/2, size, size);
     }
 }
