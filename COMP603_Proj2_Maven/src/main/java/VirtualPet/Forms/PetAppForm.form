@@ -225,18 +225,39 @@
       </Events>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar1">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar2">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar3">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar4">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar5">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar6">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar7">
+      <Properties>
+        <Property name="value" type="int" value="50"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

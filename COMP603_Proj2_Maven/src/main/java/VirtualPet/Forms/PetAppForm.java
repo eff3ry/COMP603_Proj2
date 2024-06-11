@@ -134,6 +134,20 @@ public class PetAppForm extends javax.swing.JFrame {
             }
         });
 
+        jProgressBar1.setValue(50);
+
+        jProgressBar2.setValue(50);
+
+        jProgressBar3.setValue(50);
+
+        jProgressBar4.setValue(50);
+
+        jProgressBar5.setValue(50);
+
+        jProgressBar6.setValue(50);
+
+        jProgressBar7.setValue(50);
+
         jLabel1.setText("Name");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
