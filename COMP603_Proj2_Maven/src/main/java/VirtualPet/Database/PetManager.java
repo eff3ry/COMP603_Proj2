@@ -20,17 +20,19 @@ public class PetManager {
     
     public static void main(String[] args) {
         PetManager pm = new PetManager();
-        try {
-            pm.createPetTable();
-        } catch (SQLException ex) {
-            Logger.getLogger(PetManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
     
     public PetManager()
     {
         dbManager = new DBManager();
         dbManager.establishConnection();
+        
+        try {
+            createPetTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(PetManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void createPetTable() throws SQLException
