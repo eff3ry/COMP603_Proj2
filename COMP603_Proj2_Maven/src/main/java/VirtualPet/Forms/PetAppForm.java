@@ -12,6 +12,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import java.io.File;
 import java.awt.Image;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -26,10 +27,10 @@ public class PetAppForm extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    Pet pet;
     
-    public PetAppForm(Pet pet) {
-        this.pet = pet;
+    
+    public PetAppForm() {
+        
         
         initComponents();
                 
@@ -50,21 +51,18 @@ public class PetAppForm extends javax.swing.JFrame {
 
     public void updateValues()
     {
-        nameValueLabel.setText(pet.attributes.getName());
-        speciesValueLabel.setText(pet.attributes.getSpecies());
+        nameValueLabel.setText(GUIApp.loadedPet.attributes.getName());
+        speciesValueLabel.setText(GUIApp.loadedPet.attributes.getSpecies());
         
-        thirstBar.setValue(pet.needs.getThirst());
-        hungerBar.setValue(pet.needs.getHunger());
-        exerciseBar.setValue(pet.needs.getExercise());
-        bladderBar.setValue(pet.needs.getBladder());
+        thirstBar.setValue(GUIApp.loadedPet.needs.getThirst());
+        hungerBar.setValue(GUIApp.loadedPet.needs.getHunger());
+        exerciseBar.setValue(GUIApp.loadedPet.needs.getExercise());
+        bladderBar.setValue(GUIApp.loadedPet.needs.getBladder());
         
-        sadnessBar.setValue(pet.attributes.getSadness());
-        foodBar.setValue(pet.resources.getFood());
-        waterBar.setValue(pet.resources.getWater());
+        sadnessBar.setValue(GUIApp.loadedPet.attributes.getSadness());
+        foodBar.setValue(GUIApp.loadedPet.resources.getFood());
+        waterBar.setValue(GUIApp.loadedPet.resources.getWater());
     }
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,6 +114,11 @@ public class PetAppForm extends javax.swing.JFrame {
         });
 
         waterButton.setText("Water");
+        waterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                waterButtonActionPerformed(evt);
+            }
+        });
 
         walkButton.setText("Walk");
         walkButton.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +137,11 @@ public class PetAppForm extends javax.swing.JFrame {
         });
 
         playButton.setText("Play");
+        playButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playButtonActionPerformed(evt);
+            }
+        });
 
         petPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -309,22 +317,42 @@ public class PetAppForm extends javax.swing.JFrame {
 
     private void feedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedButtonActionPerformed
         // TODO add your handling code here:
+        messageLabel.setText(GUIApp.loadedPet.feed());
+        updateValues();
     }//GEN-LAST:event_feedButtonActionPerformed
 
     private void toiletButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toiletButtonActionPerformed
         // TODO add your handling code here:
-        
+        messageLabel.setText(GUIApp.loadedPet.useToilet());
+        updateValues();
     }//GEN-LAST:event_toiletButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
-        //PetManager.updatePet();
+        try {
+            // TODO add your handling code here:
+            GUIApp.petManager.updatePet(GUIApp.loadedPet);
+        } catch (SQLException ex) {
+            Logger.getLogger(PetAppForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void walkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walkButtonActionPerformed
         // TODO add your handling code here:
-        
+        messageLabel.setText(GUIApp.loadedPet.walk());
+        updateValues();
     }//GEN-LAST:event_walkButtonActionPerformed
+
+    private void waterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterButtonActionPerformed
+        // TODO add your handling code here:
+        messageLabel.setText(GUIApp.loadedPet.water());
+        updateValues();
+    }//GEN-LAST:event_waterButtonActionPerformed
+
+    private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
+        // TODO add your handling code here:
+        messageLabel.setText(GUIApp.loadedPet.play());
+        updateValues();
+    }//GEN-LAST:event_playButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,7 +389,7 @@ public class PetAppForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PetAppForm(new Dog("Test")).setVisible(true);
+                new PetAppForm();
                 PetThread thread = new PetThread(petPanel1);
                 thread.start();
             }

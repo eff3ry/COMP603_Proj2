@@ -4,6 +4,7 @@
  */
 package VirtualPet;
 
+import VirtualPet.Forms.GUIApp;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +42,8 @@ public class PetThread extends Thread{
             {
                 counter = 0;
                 setWander();
+                GUIApp.statTick();
+
             }
             
             bounceAround();
@@ -51,12 +54,7 @@ public class PetThread extends Thread{
         
     }
     
-    public void wander()
-    {
         
-        
-    }
-    
     public void setWander()
     {
         xDir = rand.nextInt(2) == 1 ? 1 : -1;

@@ -36,8 +36,20 @@ public class GUIApp {
     
     static HashMap<String, Pet> petMap = null;
     
-    static Pet loadedPet = null;
+    static public Pet loadedPet = null;
         
+    public static void statTick()
+    {
+        loadedPet.increaseRandomStat();
+        loadedPet.updateSadness();
+        if (currentFrame instanceof PetAppForm)
+        {
+            PetAppForm frame = (PetAppForm) currentFrame;
+            frame.updateValues();
+        }
+    }
+    
+    
     public static void main(String[] args) {
         FlatDarkLaf.setup();
         
@@ -99,7 +111,7 @@ public class GUIApp {
     
     public static void openPetAppForm()
     {
-        petAppForm = new PetAppForm(loadedPet);
+        petAppForm = new PetAppForm();
         assignCloseListener(petAppForm);
         if (currentFrame != null)
         {
