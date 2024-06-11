@@ -4,7 +4,9 @@
  */
 package VirtualPet.Database;
 
+import VirtualPet.Creature.Pet;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -56,22 +58,46 @@ public class PetManager {
         }
     }
     
-    public void insertPet() throws SQLException {
+//    public void insertPet() throws SQLException {
+//        Connection conn = dbManager.getConnection();
+//        Statement s = conn.createStatement();
+//        
+//        s.execute("INSERT INTO PET VALUES ("
+//                + "Pet.Attributes.getName()"
+//                + "Pet.Attributes.getSpecies(),"
+//                + "Pet.Attributes.getSadness(),"
+//                + "Pet.Needs.getThirst(),"
+//                + "Pet.Needs.getHunger(),"
+//                + "Pet.Needs.getBladder(),"
+//                + "Pet.Needs.getExcerise(),"
+//                + "Pet.Resources.getFood(),"
+//                + "Pet.Resources.getWater(),");
+//        
+//    }
+ 
+    public void insertPet(Pet pet) throws SQLException {
         Connection conn = dbManager.getConnection();
-        Statement s = conn.createStatement();
-        
-        s.execute("INSERT INTO PET VALUES ("
-                + "Pet.Attributes.getName(),"
-                + "Pet.Attributes.getSpecies(),"
-                + "Pet.Attributes.getSadness(),"
-                + "Pet.Needs.getThirst(),"
-                + "Pet.Needs.getHunger(),"
-                + "Pet.Needs.getBladder(),"
-                + "Pet.Needs.getExcerise(),"
-                + "Pet.Resources.getFood(),"
-                + "Pet.Resources.getWater(),");
-        
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO PET VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        // Set values using prepared statement
+        ps.setString(1, pet.attributes.getName());
+        ps.setString(2, pet.attributes.getSpecies());
+        ps.setInt(3, pet.attributes.getSadness());
+        ps.setInt(4, pet.needs.getThirst());
+        ps.setInt(5, pet.needs.getHunger());
+        ps.setInt(6, pet.needs.getBladder());
+        ps.setInt(7, pet.needs.getExercise());
+        ps.setInt(8, pet.resources.getFood());
+        ps.setInt(9, pet.resources.getWater());
+
+        // Execute the update
+        ps.executeUpdate();
+
+        // Close the prepared statement (recommended)
+        ps.close();
+
+        // Close the connection (important!)
+        //conn.close();
     }
-   
-    
+
 }
