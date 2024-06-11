@@ -5,7 +5,9 @@
 package VirtualPet.Database;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -51,4 +53,11 @@ public final class DBManager {
             }
         }
     }
+    
+    public static boolean tableExists(Connection conn, String tableName) throws SQLException {
+        DatabaseMetaData metaData = conn.getMetaData();
+        ResultSet rs = metaData.getTables(null, null, tableName, null);
+        return rs.next(); // Check if the result set has any rows (table exists)
+    }
+
 }
