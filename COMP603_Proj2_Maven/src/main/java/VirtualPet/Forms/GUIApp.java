@@ -8,6 +8,11 @@ import VirtualPet.Creature.Pet;
 import VirtualPet.Database.PetManager;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -22,8 +27,14 @@ public class GUIApp {
     
     static StartFrame startFrame;
     static CreateForm createForm;
+    static LoadForm loadForm;
+    static PetAppForm petAppForm;
             
     static PetManager petManager;
+    
+    static HashMap<String, Pet> petMap = null;
+    
+    static Pet loadedPet = null;
         
     public static void main(String[] args) {
         
@@ -63,6 +74,44 @@ public class GUIApp {
         currentFrame = startFrame;
     }
     
+    public static void openLoadForm()
+    {
+        loadForm = new LoadForm();
+        assignCloseListener(loadForm);
+        if (currentFrame != null)
+        {
+            currentFrame.setVisible(false);
+        }
+
+        loadForm.setVisible(true);
+        currentFrame = loadForm;
+        
+        try {
+            petMap = petManager.queryPetHashMap();
+        } catch (SQLException ex) {
+            Logger.getLogger(GUIApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (petMap != null)
+        {
+            loadForm.loadPetsIntoList(petMap);
+        }
+        
+    }
+    
+    public static void openPetAppForm()
+    {
+        petAppForm = new PetAppForm(loadedPet);
+        assignCloseListener(petAppForm);
+        if (currentFrame != null)
+        {
+            currentFrame.setVisible(false);
+        }
+
+        petAppForm.setVisible(true);
+        currentFrame = petAppForm;
+    }
+        
     private static void assignCloseListener(JFrame frame)
     {
         frame.addWindowListener(new WindowAdapter() {

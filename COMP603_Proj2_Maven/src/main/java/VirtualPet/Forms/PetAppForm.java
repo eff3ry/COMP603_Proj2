@@ -17,14 +17,14 @@ import javax.imageio.ImageIO;
  *
  * @author jeffe
  */
-public class PetAppFrame extends javax.swing.JFrame {
+public class PetAppForm extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
     Pet pet;
     
-    public PetAppFrame(Pet pet) {
+    public PetAppForm(Pet pet) {
         this.pet = pet;
         
         initComponents();
@@ -203,15 +203,17 @@ public class PetAppFrame extends javax.swing.JFrame {
 //        } catch (IllegalAccessException ex) {
 //            java.util.logging.Logger.getLogger(PetAppFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PetAppFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PetAppForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PetAppFrame(new Dog("Test")).setVisible(true);
+                new PetAppForm(new Dog("Test")).setVisible(true);
                 PetThread thread = new PetThread(petPanel1);
                 thread.start();
             }

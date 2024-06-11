@@ -12,6 +12,9 @@ import VirtualPet.Creature.Rabbit;
 import java.io.File;
 import java.awt.Image;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -169,9 +172,17 @@ public class CreateForm extends javax.swing.JFrame {
             
             if (pet != null)
             {
-                this.setVisible(false);
-                PetAppFrame appFrame = new PetAppFrame(pet);
-                appFrame.setVisible(true);
+                try {
+                    GUIApp.petManager.insertPet(pet);
+                    GUIApp.loadedPet = pet;
+                    GUIApp.openPetAppForm();
+                    
+//                this.setVisible(false);
+//                PetAppFrame appFrame = new PetAppFrame(pet);
+//                appFrame.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CreateForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }//GEN-LAST:event_createButtonActionPerformed

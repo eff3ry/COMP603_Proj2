@@ -33,7 +33,7 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="petListScrollPane" pref="213" max="32767" attributes="0"/>
+                      <Component id="petListScrollPane" pref="220" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="foodValueBar" pref="0" max="32767" attributes="0"/>
+                                  <Component id="foodValueBar" pref="128" max="32767" attributes="0"/>
                                   <Component id="thirstValueBar" pref="0" max="32767" attributes="0"/>
                                   <Component id="exerciseValueBar" alignment="1" pref="0" max="32767" attributes="0"/>
                                   <Component id="hungerValueBar" pref="0" max="32767" attributes="0"/>
@@ -67,12 +67,12 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="65" max="32767" attributes="0"/>
+                              <EmptySpace pref="69" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="nameValueLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="speciesValueLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="64" max="32767" attributes="0"/>
+                              <EmptySpace pref="68" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -184,6 +184,9 @@
               <Dimension value="[1000000, 1000000]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="petListBoxValueChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -194,6 +197,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="loadButton">
       <Properties>
@@ -232,13 +238,13 @@
     <Component class="javax.swing.JLabel" name="nameValueLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="Pet"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="speciesValueLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="Cat"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="exerciseValueBar">

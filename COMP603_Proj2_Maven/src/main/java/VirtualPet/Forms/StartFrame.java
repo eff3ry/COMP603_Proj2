@@ -67,6 +67,7 @@ public class StartFrame extends javax.swing.JFrame {
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         // TODO add your handling code here:
+        GUIApp.openLoadForm();
     }//GEN-LAST:event_loadButtonActionPerformed
 
     /**
